@@ -1,1 +1,4 @@
 .DS_Store
+compiled/
+node_modules/
+config.json
