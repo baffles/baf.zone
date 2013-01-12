@@ -1,4 +1,4 @@
-#name-header
+.name
 	position fixed
 	left 20px
 	top 20px
@@ -6,7 +6,7 @@
 	line-height 180px
 	font-size 3em
 
-#fb-photo
+#photo
 	float left
 	background url('http://graph.facebook.com/baf/picture?type=large')
 	width 180px
@@ -15,7 +15,7 @@
 	border-radius 25px
 	margin-right 20px
 
-ul#link-container
+ul.link-dock
 	position fixed
 	right 20px
 	top 50px
@@ -27,15 +27,14 @@ ul#link-container
 			text-decoration none
 			color black
 
-.icon
-	width 30px
-	opacity 0.8
-	-webkit-transition 0.25s ease
-	//-webkit-transition opacity 0.5s ease
+			.dock-icon
+				opacity 0.5
+				-webkit-transition 0.25s ease
+				//-webkit-transition opacity 0.5s ease
 
-.iconhover
-	margin-top 0.3125em
-	margin-bottom 0.3125em
-	opacity 1.0
-	-webkit-transform-origin right center
-	-webkit-transform scale(1.5)
+			.dock-icon:hover
+				margin-top 0.3125em
+				margin-bottom 0.3125em
+				opacity 1.0
+				-webkit-transform-origin right center
+				-webkit-transform scale(1.5)
