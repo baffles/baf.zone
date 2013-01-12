@@ -1,6 +1,38 @@
-This is my website!
+# My Website
 
-Stuff to credit:
-Font Awesome
+This is the source to my website. It is written with Jade, Stylus/Nib, and
+CoffeeScript, and designed to be statically compiled and hosted via Amazon S3
+and/or CloudFront.
 
-npm install jade, stylus, nib(?), fs-extra, uglify-js
+## Third Party Code
+
+I'm using [Font Awesome](http://fortawesome.github.com/Font-Awesome/) for
+several icons on the site. This exists as a submodule in this repository.
+
+I'm making use of [CoffeeScript](http://coffeescript.org/) (running on
+[node.js](http://nodejs.org/)), both for JavaScript on the site, and for
+building the site.
+
+* CoffeeScript must be installed and in the path to build the site.
+* The [jade](http://jade-lang.com/),
+  [stylus](http://learnboost.github.com/stylus/),
+  [nib](https://github.com/visionmedia/nib),
+  [fs-extra](https://github.com/jprichardson/node-fs-extra),
+  and [uglify-js](https://github.com/mishoo/UglifyJS2) node packages must be
+  installed to build the site. You can install these locally by running
+  `npm install jade stylus nib fs-extra uglify-js`.
+* To install submodules, be sure to run `git submodule update`.
+
+## Building
+
+To build, run `cake build`. To build without minifying/compressing content,
+pass the `-d` flag (`cake -d build`). Run `cake` to view other options; these
+may also be specified using config.json.
+
+To run a watcher that automatically recompiles files as they are edited, run
+`cake watch`. As with before, pass the `-d` flag to build edited content
+without minification/compression (`cake -d watch`).
+
+## Deploying
+
+	// todo
