@@ -59,7 +59,7 @@ buildFile = (options, sourceDir, sourceFile, destDir) ->
 			css = stylus(fs.readFileSync(path.join(sourceDir, sourceFile), 'utf8'))
 				.set('filename', sourceFile)
 				.set('compress', not options.dev)
-				.use(do nib)
+				.use(nib())
 				.render (err, css) ->
 					throw err if err?
 					fs.writeFileSync outFile, css, 'utf8'
