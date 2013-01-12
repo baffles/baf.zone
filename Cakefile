@@ -32,7 +32,7 @@ getConfig = (options) ->
 		key: options.key ? config?.key
 		secret: options.secret ? config?.secret
 		bucket: options.bucket ? config?.bucket
-		path: options.path ? config?.path ? '/stable/'
+		path: options.path ? config?.path ? '/'
 
 buildDir = (options, sourceDir, destDir) ->
 	fs.mkdirsSync destDir if not fs.existsSync destDir
@@ -98,6 +98,21 @@ watchFile = (options, sourceDir, sourceFile, destDir) ->
 			console.log "#{sourceFile} changed, rebuilding..."
 			buildFile options, sourceDir, sourceFile, destDir
 
+deployDir = (knox, localDir, destDir) ->
+	for entry in fs.readdirSync localDir
+		stat = fs.statSync path.join localDir, entry
+		if stat.isDirectory()
+			deployDir knox, path.join(localDir, entry), path.join(destDir, entry)
+		else if stat.isFile()
+			file = path.join(localDir, entry)
+			remoteFile = path.join(destDir, entry)
+			knox.putFile file, remoteFile, { 'x-amz-acl': 'public-read', 'Cache-Control': 'no-cache' }, (err, res) ->
+				console.log "Error uploading #{remoteFile}: #{err}" if err?
+				if res.statusCode is 200
+					console.log "Uploaded #{remoteFile}."
+				else
+					console.log "Error uploading #{remoteFile}. [#{res.statusCode}]"
+
 sources = [
 	{ source: 'html', destination: '.' }
 	{ source: 'css', destination: 'css' }
@@ -133,9 +148,7 @@ task 'watch', 'watches for changes in source files', (options) ->
 	
 	console.log 'Watching for changes...'
 
-###
-task 'upload', 'upload to S3', (options) ->
-	path = require 'path'
+task 'deploy', 'deploy to S3', (options) ->
 	knox = require 'knox'
 	
 	gotOpts = true
@@ -155,26 +168,11 @@ task 'upload', 'upload to S3', (options) ->
 		console.log 'Run `cake` to view all available options.'
 		process.exit 1
 	
-	console.log "Uploading accjs to #{path.join "[#{options.bucket}]", options.path}"
+	console.log "Deploying to #{path.join "[#{options.bucket}]", options.path}"
 	
 	client = knox.createClient
 		key: options.key
 		secret: options.secret
 		bucket: options.bucket
 	
-	console.log 'Uploading accjs.js...'
-	client.putFile 'bin/accjs.js', path.join(options.path, 'accjs.js'), { 'x-amz-acl': 'public-read', 'Cache-Control': 'no-cache' }, (err, res) ->
-		console.log "Error uploading accjs.js: #{err}" if err?
-		if res.statusCode is 200
-			console.log 'Uploaded accjs.js.'
-		else
-			console.log "Error uploading accjs.js. [#{res.statusCode}]"
-	
-	console.log 'Uploading accjs.min.js...'
-	client.putFile 'bin/accjs.min.js', path.join(options.path, 'accjs.min.js'), { 'x-amz-acl': 'public-read', 'Cache-Control': 'no-cache' }, (err, res) ->
-		console.log "Error uploading accjs.min.js: #{err}" if err?
-		if res.statusCode is 200
-			console.log 'Uploaded accjs.min.js.'
-		else
-			console.log "Error uploading accjs.min.js. [#{res.statusCode}]"
-###
+	deployDir client, options.output, options.path

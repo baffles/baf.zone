@@ -18,9 +18,12 @@ building the site.
   [stylus](http://learnboost.github.com/stylus/),
   [nib](https://github.com/visionmedia/nib),
   [fs-extra](https://github.com/jprichardson/node-fs-extra),
-  and [uglify-js](https://github.com/mishoo/UglifyJS2) node packages must be
+  [uglify-js](https://github.com/mishoo/UglifyJS2) node packages must be
   installed to build the site. You can install these locally by running
   `npm install jade stylus nib fs-extra uglify-js`.
+* The [knox](https://github.com/LearnBoost/knox) node package must be installed
+  to deploy the site to S3. You can install this locally by running
+  `npm install knox`.
 * To install submodules, be sure to run `git submodule update`.
 
 ## Building
@@ -35,4 +38,8 @@ without minification/compression (`cake -d watch`).
 
 ## Deploying
 
-	// todo
+To deploy, you'll need to specify S3 information. This can either be done via
+`config.json` (see `config.json.sample`) or via command line (run `cake` to
+view the options).
+
+The actual deployment process is accomplished by running `cake deploy`.
