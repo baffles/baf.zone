@@ -6,13 +6,20 @@ html(lang="en")
 		link(rel='stylesheet', type='text/css', href='css/style.css')
 		//script(type='text/javascript', src='js/test.js')
 	body
-		.name
+		.identification
 			#photo
-			| Robert Ferris
-		ul.link-dock
-			li: a(href='#'): i.icon-envelope-alt.icon-3x.dock-icon
-			li: a(href='#'): i.icon-pencil.icon-3x.dock-icon
-			li: a(href='#'): i.icon-facebook-sign.icon-3x.dock-icon
-			li: a(href='#'): i.icon-linkedin-sign.icon-3x.dock-icon
-			li: a(href='#'): i.icon-twitter-sign.icon-3x.dock-icon
-			li: a(href='#'): i.icon-github-sign.icon-3x.dock-icon
+			span.name Robert Ferris
+			ul.links
+				li: a(href='mailto:'): i.icon-envelope-alt.icon-3x.icon
+				li: a(href='http://blog.baf.cc/', title='Blog'): i.icon-pencil.icon-3x.icon
+				li: a(href='https://fb.me/baf', title='Facebook'): i.icon-facebook-sign.icon-3x.icon
+				li: a(href='http://lnkd.in/a-G-CK', title='LinkedIn'): i.icon-linkedin-sign.icon-3x.icon
+				li: a(href='https://twitter.com/baffles', title='Twitter'): i.icon-twitter-sign.icon-3x.icon
+				li: a(href='https://github.com/baffles', title='GitHub'): i.icon-github-sign.icon-3x.icon
+		//ul.link-dock
+			li: a(href='mailto:'): i.icon-envelope-alt.icon-3x.dock-icon
+			li: a(href='http://blog.baf.cc/', title='Blog'): i.icon-pencil.icon-3x.dock-icon
+			li: a(href='https://fb.me/baf', title='Facebook'): i.icon-facebook-sign.icon-3x.dock-icon
+			li: a(href='http://lnkd.in/a-G-CK', title='LinkedIn'): i.icon-linkedin-sign.icon-3x.dock-icon
+			li: a(href='https://twitter.com/baffles', title='Twitter'): i.icon-twitter-sign.icon-3x.dock-icon
+			li: a(href='https://github.com/baffles', title='GitHub'): i.icon-github-sign.icon-3x.dock-icon
