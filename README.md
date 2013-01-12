@@ -6,8 +6,9 @@ and/or CloudFront.
 
 ## Third Party Code
 
-I'm using [Font Awesome](http://fortawesome.github.com/Font-Awesome/) for
-several icons on the site. This exists as a submodule in this repository.
+I'm using [Font Awesome](http://fortawesome.github.com/Font-Awesome/) by David
+Gandy for several icons on the site. This exists as a submodule in this
+repository.
 
 I'm making use of [CoffeeScript](http://coffeescript.org/) (running on
 [node.js](http://nodejs.org/)), both for JavaScript on the site, and for
@@ -24,7 +25,7 @@ building the site.
 * The [knox](https://github.com/LearnBoost/knox) node package must be installed
   to deploy the site to S3. You can install this locally by running
   `npm install knox`.
-* To install submodules, be sure to run `git submodule update`.
+* To fetch submodules, be sure to run `git submodule update`.
 
 ## Building
 
