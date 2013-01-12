@@ -1,0 +1,76 @@
+<html>
+<head>
+	<link rel="stylesheet" href="./fontawesome/css/font-awesome.min.css">
+	<style type="text/css">
+	#name-header
+	{
+		position: fixed;
+		left: 20px;
+		top: 20px;
+		
+		line-height: 180px;
+		font-size: 3em;
+	}
+	
+	#fb-photo
+	{
+		float: left;
+		background: url('http://graph.facebook.com/baf/picture?type=large');
+		width: 180px;
+		height: 180px;
+		border: 4px solid #000;
+		border-radius: 25px;
+		margin-right: 20px;
+	}
+	
+	ul#link-container
+	{
+		position: fixed;
+		right: 20px;
+		top: 50px;
+	}
+	
+	ul#link-container li
+	{
+		list-style: none;
+	}
+	
+	ul#link-container li a
+	{
+		text-decoration: none;
+		color: black;
+	}
+	
+	.icon
+	{
+		width: 30px;
+		opacity: 0.8;
+		-webkit-transition: 0.25s ease;
+		/*-webkit-transition: opacity 0.5s ease;*/
+	}
+	
+	.icon:hover
+	{
+		margin-top: 0.3125em;
+		margin-bottom: 0.3125em;
+		opacity: 1.0;
+		-webkit-transform-origin: right center;
+		-webkit-transform: scale(1.5);
+	}
+	</style>
+</head>
+<body>
+	<div id="name-header"><div id="fb-photo"></div>Robert Ferris</div>
+	<ul id="link-container">
+		<li><a href="#"><i class="icon-envelope-alt icon-3x icon"></i></a></li>
+		<li><a href="#"><i class="icon-pencil icon-3x icon"></i></a></li>
+		<li><a href="#"><i class="icon-facebook-sign icon-3x icon"></i></a></li>
+		<li><a href="#"><i class="icon-linkedin-sign icon-3x icon"></i></a></li>
+		<li><a href="#"><i class="icon-twitter-sign icon-3x icon"></i></a></li>
+		<li><a href="#"><i class="icon-github-sign icon-3x icon"></i></a></li>
+		<!--li><a href="#"><img src="img/f_logo.png" class="icon"></a></li>
+		<li><a href="#"><img src="img/twitter-bird-white-on-blue.png" class="icon"></a></li>
+		<li><a href="#"><img src="img/f_logo.png" class="icon"></a></li-->
+	</ul>
+</body>
+</html>
