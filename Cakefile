@@ -108,8 +108,6 @@ watchFile = (options, sourceDir, sourceFile, destDir) ->
 			buildFile options, sourceDir, sourceFile, destDir
 
 watchDir = (options, sourceDir, destDir) ->
-	fs.mkdirsSync destDir if not fs.existsSync destDir
-
 	for entry in fs.readdirSync sourceDir
 		stat = fs.statSync path.join sourceDir, entry
 		if stat.isDirectory()
