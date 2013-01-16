@@ -82,6 +82,30 @@ buildFile = (options, sourceDir, sourceFile, destDir) ->
 		else
 			console.log "Skipping #{sourceFile}"
 
+minifyDir = (options, dir) ->
+	for entry in fs.readdirSync dir
+		stat = fs.statSync path.join dir, entry
+		if stat.isDirectory()
+			minifyDir options, path.join(dir, entry)
+		else if stat.isFile()
+			minifyFile options, dir, entry
+	
+minifyFile = (options, dir, file) ->
+	switch path.extname file
+		when '.js'
+			file = path.join dir, file
+			console.log "Minifying #{file} [js]..."
+			
+			js = fs.readFileSync file, 'utf8'
+			minified = uglifyjs.minify js, { fromString: true }
+			fs.writeFileSync file, minified.code, 'utf8'
+
+watchFile = (options, sourceDir, sourceFile, destDir) ->
+	fs.watchFile path.join(sourceDir, sourceFile), (cur, prev) ->
+		if +cur.mtime isnt +prev.mtime
+			console.log "#{sourceFile} changed, rebuilding..."
+			buildFile options, sourceDir, sourceFile, destDir
+
 watchDir = (options, sourceDir, destDir) ->
 	fs.mkdirsSync destDir if not fs.existsSync destDir
 
@@ -91,12 +115,6 @@ watchDir = (options, sourceDir, destDir) ->
 			watchDir options, path.join(sourceDir, entry), path.join(destDir, entry)
 		else if stat.isFile()
 			watchFile options, sourceDir, entry, destDir
-
-watchFile = (options, sourceDir, sourceFile, destDir) ->
-	fs.watchFile path.join(sourceDir, sourceFile), (cur, prev) ->
-		if +cur.mtime isnt +prev.mtime
-			console.log "#{sourceFile} changed, rebuilding..."
-			buildFile options, sourceDir, sourceFile, destDir
 
 deployDir = (knox, localDir, destDir) ->
 	for entry in fs.readdirSync localDir
@@ -121,6 +139,7 @@ sources = [
 
 thirdParty = [
 	{ source: 'fontawesome', destination: 'lib/fontawesome', paths: [ 'css', 'font' ] }
+	{ source: 'impress', destination: 'lib/impress', paths: [ 'js' ], options: { minify: [ 'js' ] } }
 ]
 
 task 'build', 'build site', (options) ->
@@ -129,13 +148,24 @@ task 'build', 'build site', (options) ->
 	for sourceDir in sources
 		buildDir options, sourceDir.source, path.join options.output, sourceDir.destination
 	
-	for pkg in thirdParty
-		for p in pkg.paths
-			sourcePath = path.join pkg.source, p
-			destPath = path.join options.output, pkg.destination, p
-			fs.mkdirsSync destPath
-			console.log "Copying third party #{destPath}..."
-			fs.copy sourcePath, destPath, (err) -> console.log "Error copying #{destPath}: #{err}" if err?
+	for pkg_ in thirdParty
+		do ->
+			pkg = pkg_
+			foldersLeft = pkg.paths.length
+			
+			for p in pkg.paths
+				sourcePath = path.join pkg.source, p
+				destPath = path.join options.output, pkg.destination, p
+				fs.mkdirsSync destPath
+				console.log "Copying third party #{destPath}..."
+				fs.copy sourcePath, destPath, (err) ->
+					console.log "Error copying #{destPath}: #{err}" if err?
+					
+					# wait and do minification after all copy operations are complete
+					foldersLeft--
+					if foldersLeft is 0 and pkg.options?.minify?
+						for m in pkg.options.minify
+							minifyDir options, path.join options.output, pkg.destination, m
 
 task 'watch', 'watches for changes in source files', (options) ->
 	console.log 'Fresh build...'
