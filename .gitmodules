@@ -1,3 +1,6 @@
 [submodule "fontawesome"]
 	path = fontawesome
 	url = git://github.com/FortAwesome/Font-Awesome.git
+[submodule "impress"]
+	path = impress
+	url = git://github.com/bartaz/impress.js.git
