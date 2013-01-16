@@ -83,12 +83,13 @@ buildFile = (options, sourceDir, sourceFile, destDir) ->
 			console.log "Skipping #{sourceFile}"
 
 minifyDir = (options, dir) ->
-	for entry in fs.readdirSync dir
-		stat = fs.statSync path.join dir, entry
-		if stat.isDirectory()
-			minifyDir options, path.join(dir, entry)
-		else if stat.isFile()
-			minifyFile options, dir, entry
+	if not options.dev
+		for entry in fs.readdirSync dir
+			stat = fs.statSync path.join dir, entry
+			if stat.isDirectory()
+				minifyDir options, path.join(dir, entry)
+			else if stat.isFile()
+				minifyFile options, dir, entry
 	
 minifyFile = (options, dir, file) ->
 	switch path.extname file
