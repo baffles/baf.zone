@@ -177,6 +177,11 @@ task 'watch', 'watches for changes in source files', (options) ->
 	
 	console.log 'Watching for changes...'
 
+task 'clean', 'cleans the output folder', (options) ->
+	console.log 'Cleaning output folder...'
+	options = getConfig options
+	fs.remove options.output, (err) -> if err? then console.log "Error cleaning output folder: #{err}" else console.log 'Output folder clean.'
+
 task 'deploy', 'deploy to S3', (options) ->
 	knox = require 'knox'
 	
