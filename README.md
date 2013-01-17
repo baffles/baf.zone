@@ -10,21 +10,27 @@ I'm using [Font Awesome](http://fortawesome.github.com/Font-Awesome/) by David
 Gandy for several icons on the site. This exists as a submodule in this
 repository.
 
+I'm using [Impress](http://bartaz.github.com/impress.js) by Bartek Szopka for
+the cool CSS3 effects when changing "pages." This exists as a submodule in this
+repository.
+
 I'm making use of [CoffeeScript](http://coffeescript.org/) (running on
 [node.js](http://nodejs.org/)), both for JavaScript on the site, and for
 building the site.
 
 * CoffeeScript must be installed and in the path to build the site.
-* The [jade](http://jade-lang.com/),
-  [stylus](http://learnboost.github.com/stylus/),
-  [nib](https://github.com/visionmedia/nib),
-  [fs-extra](https://github.com/jprichardson/node-fs-extra),
-  [uglify-js](https://github.com/mishoo/UglifyJS2) node packages must be
+* The [jade](http://jade-lang.com/) v0.28.x,
+  [stylus](http://learnboost.github.com/stylus/) v0.32.x,
+  [nib](https://github.com/visionmedia/nib) v0.9.x,
+  [fs-extra](https://github.com/jprichardson/node-fs-extra) v0.3.x,
+  [uglify-js](https://github.com/mishoo/UglifyJS2) v2.2.x, and
+  [marked](https://github.com/chjj/marked) v0.2.x node packages must be
   installed to build the site. You can install these locally by running
-  `npm install jade stylus nib fs-extra uglify-js`.
-* The [knox](https://github.com/LearnBoost/knox) node package must be installed
-  to deploy the site to S3. You can install this locally by running
-  `npm install knox`.
+  `npm install jade@0.28.x stylus@0.32.x nib@0.9.x fs-extra@0.3.x
+  uglify-js@2.2.x marked@0.2.x`.
+* The [knox](https://github.com/LearnBoost/knox) v0.4.x node package must be
+  installed to deploy the site to S3. You can install this locally by running
+  `npm install knox@0.4.x`.
 * To fetch submodules, be sure to run `git submodule update`.
 
 ## Building

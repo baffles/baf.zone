@@ -51,7 +51,7 @@ buildFile = (options, sourceDir, sourceFile, destDir) ->
 			console.log "Building #{outFile} [jade]..."
 			
 			try
-				html = jade.compile(fs.readFileSync(path.join(sourceDir, sourceFile), 'utf8'), { pretty: options.dev })()
+				html = jade.compile(fs.readFileSync(path.join(sourceDir, sourceFile), 'utf8'), { pretty: options.dev, filename: path.join(sourceDir, sourceFile) })()
 				fs.writeFileSync outFile, html, 'utf8'
 			catch err
 				console.log "Error compiling #{outFile}: #{err}"
