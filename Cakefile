@@ -50,26 +50,32 @@ buildFile = (options, sourceDir, sourceFile, destDir) ->
 			outFile = path.join destDir, sourceFile.replace /\.jade$/, '.html'
 			console.log "Building #{outFile} [jade]..."
 			
-			html = jade.compile(fs.readFileSync(path.join(sourceDir, sourceFile), 'utf8'), { pretty: options.dev })()
-			fs.writeFileSync outFile, html, 'utf8'
+			try
+				html = jade.compile(fs.readFileSync(path.join(sourceDir, sourceFile), 'utf8'), { pretty: options.dev })()
+				fs.writeFileSync outFile, html, 'utf8'
+			catch err
+				console.log "Error compiling #{outFile}: #{err}"
 		when '.styl'
 			outFile = path.join destDir, sourceFile.replace /\.styl$/, '.css'
 			console.log "Building #{outFile} [stylus]..."
 			
-			css = stylus(fs.readFileSync(path.join(sourceDir, sourceFile), 'utf8'))
-				.set('filename', sourceFile)
-				.set('compress', not options.dev)
-				.use(nib())
-				.render (err, css) ->
-					throw err if err?
-					fs.writeFileSync outFile, css, 'utf8'
+			try
+				css = stylus(fs.readFileSync(path.join(sourceDir, sourceFile), 'utf8'))
+					.set('filename', sourceFile)
+					.set('compress', not options.dev)
+					.use(nib())
+					.render (err, css) ->
+						throw err if err?
+						fs.writeFileSync outFile, css, 'utf8'
+			catch err
+				console.log "Error compiling #{outFile}: #{err}"
 		when '.coffee'
 			outFile = path.join destDir, sourceFile.replace /\.coffee$/, '.js'
 			console.log "Building #{outFile} [coffee]..."
 			
 			exec "coffee -cp #{path.join sourceDir, sourceFile}", (err, stdout, stderr) ->
-				throw err if err?
-				console.log stderr if stderr?
+				console.log "Error compiling #{outFile}: #{err}" if err?
+				console.log "Error compiling #{outFile}: #{stderr}" if stderr?
 				
 				if stdout?
 					# it worked
