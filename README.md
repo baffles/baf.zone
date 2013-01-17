@@ -43,6 +43,8 @@ To run a watcher that automatically recompiles files as they are edited, run
 `cake watch`. As with before, pass the `-d` flag to build edited content
 without minification/compression (`cake -d watch`).
 
+To remove the output files, run `cake clean`.
+
 ## Deploying
 
 To deploy, you'll need to specify S3 information. This can either be done via
