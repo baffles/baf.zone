@@ -14,6 +14,7 @@ html(lang="en")
 			li: a(href='#me') about me
 			li: a(href='#bio') bio
 			li: a(href='#resume') r&eacute;sum&eacute;
+			li: a(href='#contact') contact
 		.fallback-message
 			// message for when impress isn't supported
 			p Your browser 
@@ -33,6 +34,9 @@ html(lang="en")
 				include ../markdown/bio.md
 			#resume.markdown-container.step.slide(data-x='1000', data-y='0', data-scale='1', data-rotate-z='45')
 				include ../markdown/resume.md
+			#contact.step.slide(data-x='-1250', data-y='-1450', data-z='-300', data-scale='0.05')
+				h1 Contact
+				p Contact form right here yo yo yo
 			#overview.step(data-x='0', data-y='0', data-scale='5')
 		a#github-ribbon(href='https://github.com/baffles/baf.cc'): img(src='https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png', alt='Fork me on GitHub')
 		#copyright Copyright &copy; Robert Ferris, 2013
