@@ -10,6 +10,10 @@ html(lang="en")
 	body.impress-not-supported
 		// impress references body right away, rather than waiting for init(), so we need to put this in <body>
 		script(type='text/javascript', src='lib/impress/js/impress.js')
+		#navbar
+			li: a(href='#me') about me
+			li: a(href='#bio') bio
+			li: a(href='#resume') r&eacute;sum&eacute;
 		.fallback-message
 			// message for when impress isn't supported
 			p Your browser 
@@ -23,7 +27,7 @@ html(lang="en")
 				b Firefox
 				| .
 		#impress
-			#me.step.slide(data-x='-1000', data-y='-1500', data-scale='5')
+			#me.step.slide(data-x='-1000', data-y='-1500', data-scale='2')
 				.identification
 					#photo
 					span.name Robert Ferris
@@ -37,13 +41,17 @@ html(lang="en")
 						li: a(href='mailto:'): i.icon-envelope-alt.icon-3x.icon
 						li: a(href='http://blog.baf.cc/', title='Blog'): i.icon-pencil.icon-3x.icon
 						li: a(href='https://fb.me/baf', title='Facebook'): i.icon-facebook-sign.icon-3x.icon
+						li: a(href='https://plus.google.com/102603256650195581699', title='Google+'): i.icon-google-plus-sign.icon-3x.icon
 						li: a(href='http://lnkd.in/a-G-CK', title='LinkedIn'): i.icon-linkedin-sign.icon-3x.icon
 						li: a(href='https://twitter.com/baffles', title='Twitter'): i.icon-twitter-sign.icon-3x.icon
 						li: a(href='https://github.com/baffles', title='GitHub'): i.icon-github-sign.icon-3x.icon
-			#step-2.step.slide(data-x='0', data-y='-1500', data-z='-3000', data-rotate='3000', data-scale='10')
-				include ../markdown/test.md
-			#overview.step(data-x='3000', data-y='1500', data-scale='10')
+			#bio.markdown-container.step.slide(data-x='-1000', data-y='0', data-scale='1', data-rotate-x='45')
+				include ../markdown/bio.md
+			#resume.markdown-container.step.slide(data-x='1000', data-y='0', data-scale='1', data-rotate-z='45')
+				include ../markdown/resume.md
+			#overview.step(data-x='0', data-y='0', data-scale='5')
 		a#github-ribbon(href='https://github.com/baffles/baf.cc'): img(src='https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png', alt='Fork me on GitHub')
+		#copyright Copyright &copy; Robert Ferris, 2013
 		//ul.link-dock
 			li: a(href='mailto:'): i.icon-envelope-alt.icon-3x.dock-icon
 			li: a(href='http://blog.baf.cc/', title='Blog'): i.icon-pencil.icon-3x.dock-icon

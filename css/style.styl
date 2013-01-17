@@ -47,13 +47,18 @@
 						opacity 0.5
 						transition 0.25s ease
 						
-						animation linkEntrance 0.75s
+						animation linkEntrance 0.75s ease 0.75s
 						animation-fill-mode backwards
 				
 					.icon:hover
 						opacity 1.0
 						transform-origin center center
 						transform scale(1.5)
+
+.markdown-container
+	width 1000px
+	height 700px
+	overflow auto
 
 .fallback-message
 	font-family sans-serif
@@ -72,6 +77,30 @@
 
 .impress-supported .fallback-message
 	display none
+
+#navbar
+	padding 4px
+	position absolute
+	top 0
+	left 0
+	
+	li
+		display inline
+		list-style none
+		margin-right 3px
+		
+		a
+			text-decoration underline
+			color rgb(0, 0, 238)
+
+#copyright
+	padding 4px
+	position absolute
+	bottom 0
+	left 0
+	
+	font-size 0.75em
+	color #2D3D4D
 
 #github-ribbon
 	img
