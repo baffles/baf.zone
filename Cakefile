@@ -9,12 +9,12 @@ nib = require 'nib'
 uglifyjs = require 'uglify-js'
 
 option '-d', '--dev', 'Developer mode (prettyprint, no compression)'
-option '-c', '--config [FILE]', 'Configuration File, defaults to config.json'
-option '-o', '--output [OUTDIR]', 'Output directory for build, defaults to compiled'
+option '-c', '--config [FILE]', 'Configuration File, defaults to \'config.json\''
+option '-o', '--output [OUTDIR]', 'Output directory for build, defaults to \'compiled\''
 option '-k', '--key [KEY]', 'S3 API Key'
 option '-s', '--secret [SECRET]', 'S3 API Secret'
 option '-b', '--bucket [BUCKET]', 'S3 Destination Bucket'
-option '-p', '--path [PATH]', 'S3 Destination Path, defaults to /stable/'
+option '-p', '--path [PATH]', 'S3 Destination Path, defaults to \'/stable/\''
 
 getConfig = (options) ->
 	configFile = options.config ? 'config.json'
