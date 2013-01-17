@@ -75,7 +75,7 @@ buildFile = (options, sourceDir, sourceFile, destDir) ->
 			
 			exec "coffee -cp #{path.join sourceDir, sourceFile}", (err, stdout, stderr) ->
 				console.log "Error compiling #{outFile}: #{err}" if err?
-				console.log "Error compiling #{outFile}: #{stderr}" if stderr?
+				console.log "Error compiling #{outFile}: #{stderr}" if stderr?.trim().length > 0
 				
 				if stdout?
 					# it worked
@@ -127,14 +127,15 @@ deployDir = (knox, localDir, destDir) ->
 		if stat.isDirectory()
 			deployDir knox, path.join(localDir, entry), path.join(destDir, entry)
 		else if stat.isFile()
-			file = path.join(localDir, entry)
-			remoteFile = path.join(destDir, entry)
-			knox.putFile file, remoteFile, { 'x-amz-acl': 'public-read', 'Cache-Control': 'no-cache' }, (err, res) ->
-				console.log "Error uploading #{remoteFile}: #{err}" if err?
-				if res.statusCode is 200
-					console.log "Uploaded #{remoteFile}."
-				else
-					console.log "Error uploading #{remoteFile}. [#{res.statusCode}]"
+			do ->
+				file = path.join(localDir, entry)
+				remoteFile = path.join(destDir, entry)
+				knox.putFile file, remoteFile, { 'x-amz-acl': 'public-read', 'Cache-Control': 'no-cache' }, (err, res) ->
+					console.log "Error uploading #{remoteFile}: #{err}" if err?
+					if res.statusCode is 200
+						console.log "Uploaded #{remoteFile}."
+					else
+						console.log "Error uploading #{remoteFile}. [#{res.statusCode}]"
 
 sources = [
 	{ source: 'html', destination: '.' }
