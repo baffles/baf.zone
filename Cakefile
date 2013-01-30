@@ -148,6 +148,10 @@ thirdParty = [
 	{ source: 'impress', destination: 'lib/impress', paths: [ 'js' ], options: { minify: [ 'js' ] } }
 ]
 
+directCopy = [
+	{ source: 'files', destination: 'files' }
+]
+
 task 'build', 'build site', (options) ->
 	options = getConfig options
 	
@@ -172,6 +176,14 @@ task 'build', 'build site', (options) ->
 					if foldersLeft is 0 and pkg.options?.minify?
 						for m in pkg.options.minify
 							minifyDir options, path.join options.output, pkg.destination, m
+
+	for dc in directCopy
+		sourcePath = dc.source
+		destPath = path.join options.output, dc.destination
+		fs.mkdirsSync destPath
+		console.log "Copying files for #{destPath}..."
+		fs.copy sourcePath, destPath, (err) ->
+			console.log "Error copying #{destPath}: #{err}" if err?
 
 task 'sbuild', 'build site', (options) ->
 	# sublime coffee plugin uses sbuild task
