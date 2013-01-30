@@ -173,6 +173,10 @@ task 'build', 'build site', (options) ->
 						for m in pkg.options.minify
 							minifyDir options, path.join options.output, pkg.destination, m
 
+task 'sbuild', 'build site', (options) ->
+	# sublime coffee plugin uses sbuild task
+	invoke 'build'
+
 task 'watch', 'watches for changes in source files', (options) ->
 	console.log 'Fresh build...'
 	invoke 'build'
