@@ -31,7 +31,8 @@ building the site.
 * The [knox](https://github.com/LearnBoost/knox) `v0.4.x` node package must be
   installed to deploy the site to S3. You can install this locally by running
   `npm install knox@0.4.x`.
-* To fetch submodules, be sure to run `git submodule update`.
+* To fetch submodules, be sure to run `git submodule init` and
+  `git submodule update`.
 
 ## Building
 
