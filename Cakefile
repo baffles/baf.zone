@@ -145,7 +145,6 @@ sources = [
 
 thirdParty = [
 	{ source: 'fontawesome', destination: 'lib/fontawesome', paths: [ 'css', 'font' ] }
-	{ source: 'impress', destination: 'lib/impress', paths: [ 'js' ], options: { minify: [ 'js' ] } }
 ]
 
 directCopy = [

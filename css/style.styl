@@ -1,6 +1,12 @@
 @import 'nib'
 
 #me
+	width 750px
+	height 188px
+
+	absolute left 50% top 50%
+	margin -94px 0 0 -375px
+
 	.identification
 		width 750px
 		height 188px
@@ -19,7 +25,7 @@
 		.name
 			font-size 3em
 	
-		.title
+		.aka-text
 			margin-left 5px
 			color black
 			font-size 1.25em
@@ -28,12 +34,14 @@
 				animation fadeIn 2s ease 1s
 				animation-fill-mode both
 			
-			.is
+			.aka
+				font-size 45%
 				animation fadeIn 2s ease 1.5s
 				animation-fill-mode both
 			
-			.awesome
-				animation awesomeEntrance 2s ease 2.25s
+			.baf
+				font-size 100%
+				animation bafEntrance 2s ease 2.25s
 				animation-fill-mode both
 	
 		ul.links
@@ -76,9 +84,6 @@
 
 .fallback-message p
 	margin-bottom 10px
-
-.impress-supported .fallback-message
-	display none
 
 #navbar
 	padding 4px
@@ -175,7 +180,7 @@
 	to
 		opacity 1
 
-@keyframes awesomeEntrance
+@keyframes bafEntrance
 	from
 		opacity 0
 

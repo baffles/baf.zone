@@ -6,12 +6,8 @@ and/or CloudFront.
 
 ## Third Party Code
 
-I'm using [Font Awesome](http://fortawesome.github.com/Font-Awesome/) by David
+I'm using [Font Awesome](http://fontawesome.github.com/Font-Awesome/) by David
 Gandy for several icons on the site. This exists as a submodule in this
-repository.
-
-I'm using [Impress](http://bartaz.github.com/impress.js) by Bartek Szopka for
-the cool CSS3 effects when changing "pages." This exists as a submodule in this
 repository.
 
 I'm making use of [CoffeeScript](http://coffeescript.org/) (running on
