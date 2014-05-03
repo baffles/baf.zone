@@ -1,5 +1,4 @@
 .DS_Store
-compiled/
+build
+contents/components/
 node_modules/
-config.json
-baf.cc.tmproj

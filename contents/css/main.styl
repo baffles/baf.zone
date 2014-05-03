@@ -1,0 +1,155 @@
+@import 'nib'
+
+body
+	margin 0
+	padding 6px
+	background #151515
+
+	display flex
+	min-height 100vh
+	flex-direction column
+	align-items center
+
+.top-level
+	width 42em
+
+#header
+	display flex
+	align-items center
+	margin-bottom 10px
+
+	color white
+
+	.photo
+		background url("https://graph.facebook.com/baf/picture?width=128&height=128")
+
+		width 128px
+		height 128px
+		//border 4px solid #333
+
+		border-radius 25px
+
+	.header-content
+		margin-left 15px
+
+		h1.title
+			margin 0
+			font-size 4em
+
+			font-family "LeagueGothic-Regular", "League Gothic", arial, sans-serif
+
+			a
+				color white
+				text-decoration none
+
+		ul.touchpoints
+			margin 0
+			padding 0
+
+			li
+				display inline
+				list-style none
+
+				margin-left 8px
+				&:first-child
+					margin-left 0
+
+				a.touchpoint
+					color white
+					text-decoration none
+
+					.icon
+						opacity 0.5
+						transition 0.25s ease
+
+						&:hover
+							opacity 1.0
+							transform-origin center center
+							transform scale(1.5)
+
+.nav-container
+	width 100%
+	background #151515
+	margin-bottom 10px
+	color white
+
+	display flex
+	flex-direction column
+	align-items center
+
+	.nav
+		//border-radius 8px
+		//transition background 0.2s ease
+
+		//padding 0 8px
+
+	&.affix .nav
+		//background #777
+
+#content
+	flex-grow 1
+
+	article.article
+		margin-bottom 30px
+		background #EEE
+		box-shadow 0 0 10px 2px #EEE
+		border-radius 20px
+		font-family 'Lucida Grande', Verdana, sans-serif
+
+		header
+			background #777
+			background linear-gradient(bottom, #888, #AAA)
+			color #222
+			border-radius top 20px
+			padding 5px
+			
+			display flex
+
+			*
+				margin 0
+
+			h2
+				font-size 2em
+				flex-grow 1
+				a
+					color inherit
+					text-decoration none
+
+			.meta
+				flex-shrink 0
+				float right
+				display flex
+				flex-direction column
+				justify-content center
+				max-width 30%
+				text-align right
+
+				.tags
+					color lightgrey
+					a
+						color inherit
+						text-decoration none
+
+		section.content
+			padding 0 1em
+			text-align justify
+			overflow auto
+
+			.more
+				text-align right
+				color steelblue
+				font-weight bold
+
+				a
+					color inherit
+
+#footer
+	display flex
+	justify-content flex-end
+
+	padding 3px
+	padding right 0
+	color #555
+
+.clearfix
+	clearfix()

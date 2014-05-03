@@ -1,0 +1,28 @@
+{
+	"locals": {
+		"url": "http://localhost:8080",
+		"name": "BAF's Ramblings",
+		"owner": "Robert Ferris",
+		"description": "Chock full of crap you probably don't want to read, this is the personal blog of Robert Ferris"
+	},
+	"plugins": [
+		"./plugins/paginator.coffee",
+		"wintersmith-stylus",
+		"wintersmith-coffee"
+	],
+	"require": {
+		"moment": "moment",
+		"_": "underscore",
+		"typogr": "typogr"
+	},
+	"jade": {
+		"pretty": true
+	},
+	"markdown": {
+		"smartLists": true,
+		"smartypants": true
+	},
+	"paginator": {
+		"perPage": 5
+	}
+}

@@ -1,0 +1,10 @@
+mixin article_header(article)
+	header
+		h2
+			a(href=article.url)= article.title
+		.meta
+			span.date(title=moment(article.date).format('LLLL'))= moment(article.date).fromNow()
+			if article.metadata.tags
+				span.tags
+					each tag in article.metadata.tags
+						='#' + tag + ' '
