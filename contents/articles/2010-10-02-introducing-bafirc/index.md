@@ -1,10 +1,11 @@
 ---
-title: 'Introducing: BAFIRC'
-date: 2010-10-02 19:49
 template: article.jade
+title: ! 'Introducing: BAFIRC'
+date: '2010-10-02T19:49:00-04:00'
 tags:
 - programming
 - bafirc
+project: bafirc
 tumblr_url: http://blog.baf.cc/post/1231252181/introducing-bafirc
 ---
 Man, I’m doing it again - putting off my school work. That’s alright, because I’m just going to do a braindump, and then start on the work I need to get done (unless other distractions present themselves, like fixing and eating dinner).
