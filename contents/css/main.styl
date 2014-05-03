@@ -102,6 +102,7 @@ body
 			color #222
 			border-radius top 20px
 			padding 5px
+			word-wrap break-word
 			
 			display flex
 
@@ -110,18 +111,20 @@ body
 
 			h2
 				font-size 2em
+				flex-shrink 1
 				flex-grow 1
 				a
 					color inherit
 					text-decoration none
 
 			.meta
-				flex-shrink 0
-				float right
+				flex-shrink 2
+				flex-grow 0
 				display flex
 				flex-direction column
 				justify-content center
-				max-width 30%
+				min-width 7.5em
+				max-width 35%
 				text-align right
 
 				.tags
