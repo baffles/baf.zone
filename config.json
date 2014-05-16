@@ -5,6 +5,7 @@
 	},
 	"plugins": [
 		"./plugins/paginator.coffee",
+		"./plugins/tumblr-permalinks.coffee",
 		"wintersmith-stylus",
 		"wintersmith-coffee"
 	],
@@ -22,5 +23,8 @@
 	},
 	"paginator": {
 		"perPage": 5
+	},
+	"tumblr": {
+		"tumblrBase": "http://blog.baf.cc/"
 	}
 }
