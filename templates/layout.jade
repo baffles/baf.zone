@@ -10,7 +10,7 @@ html(lang='en')
 			title
 				block title
 					= locals.name
-			link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
+			link(rel='alternate', href='/feed.xml', type='application/rss+xml', title=locals.description)
 			link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css')
 			link(rel='stylesheet', href='/css/main.css')
 			link(rel='stylesheet', href='/css/fonts/fonts.css')
@@ -21,7 +21,7 @@ html(lang='en')
 		header#header.top-level
 			.photo
 			.header-content
-				h1.title: a(href=locals.url)= locals.name
+				h1.title: a(href='/')= locals.name
 				ul.touchpoints
 					li: a(href='mailto:site-contact@baf.cc', title='Email').touchpoint: i.fa-envelope.fa-2x.fa.icon
 					li: a(href='http://fb.me/baf', title='Facebook', target='_blank').touchpoint: i.fa-facebook-square.fa-2x.fa.icon
@@ -39,4 +39,4 @@ html(lang='en')
 					section.about
 						!=contents['about.md'].html
 					section.copy
-						p &copy; #{ new Date().getFullYear() } #{ locals.owner }
+						p &copy; #{ new Date().getFullYear() } #{ locals.footerName }
