@@ -2,3 +2,4 @@
 build
 contents/components/
 node_modules/
+grunt-aws.json
