@@ -22,9 +22,11 @@
 		"smartypants": true
 	},
 	"paginator": {
+		"articles": "posts",
 		"perPage": 5
 	},
 	"tumblr": {
+		"articles": "posts",
 		"tumblrBase": "http://blog.baf.cc/"
 	}
 }
