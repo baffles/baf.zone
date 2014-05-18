@@ -1,0 +1,20 @@
+mixin post_header(post)
+	header
+		h2
+			a(href=post.url)= post.title
+		.meta
+			span.date(title=moment(post.date).format('LLLL'))= moment(post.date).fromNow()
+			if post.metadata.tags
+				span.tags
+					each tag in post.metadata.tags
+						='#' + tag + ' '
+
+mixin post_teasers(posts)
+	each post in posts
+		article.post.intro
+			+post_header(post)
+			section.content
+				| !{ typogr(post.intro).typogrify() }
+				if post.hasMore
+					p.more
+						a(href=post.url) more

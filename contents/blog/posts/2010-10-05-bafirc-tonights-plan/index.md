@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'BAFIRC: Tonight''s Plan'
 date: '2010-10-05T18:05:00-04:00'
 tags:

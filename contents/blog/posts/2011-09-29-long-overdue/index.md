@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Long Overdue
 date: '2011-09-29T20:40:22-04:00'
 tags:

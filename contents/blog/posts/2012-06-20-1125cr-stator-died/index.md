@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: 1125CR Stator Died
 date: '2012-06-20T21:55:42-04:00'
 tags:

@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: New Blog
 date: '2010-10-02T13:12:00-04:00'
 tags:

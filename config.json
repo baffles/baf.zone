@@ -1,11 +1,11 @@
 {
 	"locals": {
+		"url": "http://baf.zone",
 		"name": "BAFZone",
 		"footerName": "Robert Ferris"
 	},
 	"plugins": [
-		"./plugins/paginator.coffee",
-		"./plugins/tumblr-permalinks.coffee",
+		"./plugins/blog.coffee",
 		"wintersmith-stylus",
 		"wintersmith-coffee"
 	],
@@ -21,12 +21,15 @@
 		"smartLists": true,
 		"smartypants": true
 	},
-	"paginator": {
-		"articles": "posts",
-		"perPage": 5
-	},
-	"tumblr": {
-		"articles": "posts",
+	"blog": {
+		"pageTemplate": "blog-listing.jade",
+		"pageDynamicTemplate": "blog-page-teasers.jade",
+		"permalinkTemplate": "tumblr-permalink.jade",
+		"posts": "blog/posts",
+		"first": "blog/index.html",
+		"page": "blog/page/%d/index.html",
+		"pageJson": "blog/page/%d.json",
+		"perPage": 5,
 		"tumblrBase": "http://blog.baf.cc/"
 	}
 }

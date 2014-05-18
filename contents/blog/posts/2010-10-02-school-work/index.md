@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: School Work
 date: '2010-10-02T18:00:00-04:00'
 tags:

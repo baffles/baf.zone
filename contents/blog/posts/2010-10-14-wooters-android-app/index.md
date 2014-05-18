@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Wooters Android App
 date: '2010-10-14T00:14:00-04:00'
 tags:

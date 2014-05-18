@@ -1,10 +1,10 @@
 
 extends layout
 
-include article-common
+include blog-common
 
 block append vars
-	- bodyclass = 'article-detail'
+	- bodyclass = 'post-detail'
 
 block prepend title
 	| #{ page.title + " - "}
@@ -13,8 +13,8 @@ block header
 	h1= page.title
 
 block content
-	article.article
-		+article_header(page)
+	article.post
+		+post_header(page)
 		section.content!= typogr(page.html).typogrify()
 
 block prepend footer

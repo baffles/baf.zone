@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: 1125 CR
 date: '2012-02-17T00:11:07-05:00'
 tags:

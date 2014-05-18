@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'BAFIRC: IRC Layer Complete?'
 date: '2010-10-06T23:49:00-04:00'
 tags:

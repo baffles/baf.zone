@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Discover Customer Service
 date: '2012-06-21T09:56:46-04:00'
 tags:

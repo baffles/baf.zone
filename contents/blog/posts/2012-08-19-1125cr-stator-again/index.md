@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: 1125CR Stator, Again...
 date: '2012-08-19T17:25:41-04:00'
 tags:

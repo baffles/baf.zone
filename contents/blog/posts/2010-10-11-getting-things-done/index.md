@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Getting Things Done
 date: '2010-10-11T22:22:14-04:00'
 tags:

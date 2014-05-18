@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Spring Motorcycle Work
 date: '2013-04-11T19:44:57-04:00'
 tags:

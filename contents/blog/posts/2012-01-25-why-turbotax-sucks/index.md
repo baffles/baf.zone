@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Why TurboTax Sucks
 date: '2012-01-25T23:51:48-05:00'
 tags:

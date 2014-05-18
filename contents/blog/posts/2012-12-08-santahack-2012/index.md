@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: SantaHack 2012
 date: '2012-12-08T14:36:08-05:00'
 tags:

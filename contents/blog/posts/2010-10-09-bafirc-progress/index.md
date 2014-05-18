@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: BAFIRC Progress
 date: '2010-10-09T02:39:01-04:00'
 tags:

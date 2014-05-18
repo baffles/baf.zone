@@ -4,7 +4,7 @@ extends layout
 
 block content
 	- var lineHeight = 2.2;
-	- var archives = _.chain(env.helpers.getArticles(contents)).groupBy(function(item) {
+	- var archives = _.chain(env.helpers.getBlogPosts(contents)).groupBy(function(item) {
 	-	 return item.date.getFullYear()
 	- }).value()
 	- for (var archive in archives) {

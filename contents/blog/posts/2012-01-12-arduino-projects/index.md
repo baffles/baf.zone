@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Arduino Projects
 date: '2012-01-12T00:18:54-05:00'
 tags:

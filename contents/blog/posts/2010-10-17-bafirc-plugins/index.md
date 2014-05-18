@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: BAFIRC Plugins
 date: '2010-10-17T22:10:31-04:00'
 tags:

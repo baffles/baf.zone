@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Gym, and Dreaming
 date: '2012-02-06T23:30:28-05:00'
 tags:

@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'BAFIRC: IRC Message Parser'
 date: '2010-10-04T01:04:12-04:00'
 tags:

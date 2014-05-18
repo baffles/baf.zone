@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Slacking It Tonight
 date: '2010-10-13T22:33:03-04:00'
 tags:

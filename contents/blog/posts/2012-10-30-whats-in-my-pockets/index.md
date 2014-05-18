@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: What's in my pockets?
 date: '2012-10-30T16:35:12-04:00'
 tags:

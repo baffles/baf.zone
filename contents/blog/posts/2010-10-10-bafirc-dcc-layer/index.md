@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'BAFIRC: DCC Layer'
 date: '2010-10-10T01:21:00-04:00'
 tags:

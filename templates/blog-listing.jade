@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	include blog-page-teasers
+
+block append head
+	if prevPage
+		link(rel='next', href=prevPage.url)
+	if nextPage
+		link(rel='next', href=nextPage.url)
+
+block prepend footer
+	div.nav
+		if prevPage
+			a(href=prevPage.url) « Newer
+		else
+			a(href='archive.html') « Archives
+		if nextPage
+			a(href=nextPage.url) Next page »
+
+
+

@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Music Generation Project
 date: '2010-10-17T12:37:42-04:00'
 tags:

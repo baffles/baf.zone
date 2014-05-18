@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'BAFIRC: Distracting'
 date: '2010-10-04T13:12:12-04:00'
 tags:

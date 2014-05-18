@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: New Commute, Updates, and Some Goals
 date: '2012-06-06T19:28:00-04:00'
 tags:

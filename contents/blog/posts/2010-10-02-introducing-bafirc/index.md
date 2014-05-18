@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'Introducing: BAFIRC'
 date: '2010-10-02T19:49:00-04:00'
 tags:

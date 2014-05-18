@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: The IRS Sucks
 date: '2012-02-15T21:39:50-05:00'
 tags:

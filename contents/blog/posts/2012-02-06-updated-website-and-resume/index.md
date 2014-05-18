@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Updated Website and Resume
 date: '2012-02-06T23:02:19-05:00'
 tags:

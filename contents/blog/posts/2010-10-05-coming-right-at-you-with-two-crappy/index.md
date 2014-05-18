@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: 'Crappy Implementations'
 date: '2010-10-05T00:33:00-04:00'
 tags:

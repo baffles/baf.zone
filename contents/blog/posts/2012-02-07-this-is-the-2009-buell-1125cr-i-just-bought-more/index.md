@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: 'New (to me) Buell 1125CR'
 date: '2012-02-07T10:00:00-05:00'
 tags:

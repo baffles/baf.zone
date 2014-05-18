@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'BAFIRC: CTCP Layer Refactoring'
 date: '2010-10-09T17:33:00-04:00'
 tags:

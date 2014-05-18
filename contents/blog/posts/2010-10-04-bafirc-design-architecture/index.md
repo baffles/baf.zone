@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'BAFIRC: Design Architecture'
 date: '2010-10-04T14:00:26-04:00'
 tags:

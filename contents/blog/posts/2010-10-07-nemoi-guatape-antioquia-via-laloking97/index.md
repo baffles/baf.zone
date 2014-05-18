@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: ! 'GUATAPE - ANTIOQUIA (via laloking97)'
 date: '2010-10-07T00:00:00-04:00'
 tags:

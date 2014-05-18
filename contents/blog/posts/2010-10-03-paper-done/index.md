@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Paper Done
 date: '2010-10-03T21:08:41-04:00'
 tags:

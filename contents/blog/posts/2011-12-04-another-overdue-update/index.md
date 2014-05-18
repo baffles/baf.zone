@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: Another Overdue Update
 date: '2011-12-04T23:21:09-05:00'
 tags:

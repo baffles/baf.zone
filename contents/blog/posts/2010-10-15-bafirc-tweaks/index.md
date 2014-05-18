@@ -1,5 +1,5 @@
 ---
-template: article.jade
+template: blog-post.jade
 title: BAFIRC Tweaks
 date: '2010-10-15T03:43:25-04:00'
 tags:
