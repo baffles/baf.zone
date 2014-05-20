@@ -114,18 +114,12 @@ module.exports = (grunt) ->
 				options:
 					bucket: 'baf.zone'
 				upload: [
-					# hashres'd files get 2 year max-age. gzip css/**/*.css and js/*
-						src: 'build/css/**/*.css'
+					# hashres'd files get 2 year max-age. gzip css, js, and css/js in components.
+						src: 'build/css/**/*.*'
 						dest: '/'
 						rel: 'build'
 						options:
 							gzip: true
-							headers: { 'Cache-Control': 'max-age=630720000, public' }
-					,
-						src: [ 'build/css/**/*.*', '!build/css/**/*.css' ]
-						dest: '/'
-						rel: 'build'
-						options:
 							headers: { 'Cache-Control': 'max-age=630720000, public' }
 					,
 						src: 'build/js/**/*.*'
