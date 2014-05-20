@@ -110,6 +110,65 @@ module.exports = (grunt) ->
 					dest: '/'
 					rel: 'build'
 				]
+			production:
+				options:
+					bucket: 'baf.zone'
+				upload: [
+					# hashres'd files get 2 year max-age. gzip css/**/*.css and js/*
+						src: 'build/css/**/*.css'
+						dest: '/'
+						rel: 'build'
+						options:
+							gzip: true
+							headers: { 'Cache-Control': 'max-age=630720000, public' }
+					,
+						src: [ 'build/css/**/*.*', '!build/css/**/*.css' ]
+						dest: '/'
+						rel: 'build'
+						options:
+							headers: { 'Cache-Control': 'max-age=630720000, public' }
+					,
+						src: 'build/js/**/*.*'
+						dest: '/'
+						rel: 'build'
+						options:
+							gzip: true
+							headers: { 'Cache-Control': 'max-age=630720000, public' }
+					,
+						src: 'build/components/**/*.{css,js}'
+						dest: '/'
+						rel: 'build'
+						options:
+							gzip: true
+							headers: { 'Cache-Control': 'max-age=630720000, public' }
+					,
+						src: [ 'build/components/**/*.*', '!build/components/**/*.{css,js}' ]
+						dest: '/'
+						rel: 'build'
+						options:
+							headers: { 'Cache-Control': 'max-age=630720000, public' }
+					, # allow blog posts and permalinks themselves to be cached. we can invalidate things if required
+						src: [ 'build/blog/posts/**/*.*', 'build/post/**/*.*' ]
+						dest: '/'
+						rel: 'build'
+						options:
+							gzip: true
+							gzipExclude: [ '.jpg', '.png' ]
+							headers: { 'Cache-Control': 'max-age=630720000, public' }
+					, # by default, the rest won't be cached, since it's mutable. any stray css/js/html/json will be gzipped
+						src: [ 'build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/page/**/*.*' ]
+						dest: '/'
+						rel: 'build'
+						options:
+							gzip: true
+							headers: { 'Cache-Control': 'max-age=0, public' }
+					,
+						src: [ 'build/**/*.*', '!build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/page/**/*.*' ]
+						dest: '/'
+						rel: 'build'
+						options:
+							headers: { 'Cache-Control': 'max-age=0, public' }
+				]
 
 
 	grunt.loadNpmTasks task for task in [ 'grunt-contrib-clean', 'grunt-wintersmith', 'grunt-contrib-imagemin', 'grunt-contrib-htmlmin', 'grunt-contrib-cssmin', 'grunt-contrib-uglify', 'grunt-hashres', 'grunt-s3' ]
@@ -121,3 +180,4 @@ module.exports = (grunt) ->
 	grunt.registerTask 'build', [ 'pre-build', 'wintersmith:build', 'post-build' ]
 
 	grunt.registerTask 'deploy-staging', [ 'build', 's3:staging' ]
+	grunt.registerTask 'deploy-production', [ 'build', 's3:production' ]
