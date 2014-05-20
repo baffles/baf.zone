@@ -1,7 +1,4 @@
-
-extends layout
-
-include blog-common
+extends blog-page
 
 block append vars
 	- bodyclass = 'post-detail'
@@ -12,13 +9,8 @@ block prepend title
 block header
 	h1= page.title
 
-block content
-	article.post
-		+post_header(page)
-		section.content!= typogr(page.html).typogrify()
+block append content
+	+post(page, true)
 
-block prepend footer
-	div.nav
-		a(href=contents.index.url) « Full blog
-
-
+block prepend footer-nav
+	li: a(href=contents.index.url) « Full blog

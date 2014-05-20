@@ -1,8 +1,7 @@
-
-extends layout
+extends blog-page
 //- this logic should be moved to a view at some point
 
-block content
+block append content
 	- var lineHeight = 2.2;
 	- var archives = _.chain(env.helpers.getBlogPosts(contents)).groupBy(function(item) {
 	-	 return item.date.getFullYear()

@@ -7,36 +7,34 @@ html(lang='en')
 			meta(charset='utf-8')
 			meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
 			meta(name='viewport', content='width=device-width')
+			meta(name='description', content='The personal website and blog of Robert Ferris.')
 			title
 				block title
 					= locals.name
 			link(rel='alternate', href='/feed.xml', type='application/rss+xml', title=locals.description)
-			link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css')
+			link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/pure/0.4.2/pure-min.css')
+			link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css')
 			link(rel='stylesheet', href='/css/main.css')
-			link(rel='stylesheet', href='/css/fonts/fonts.css')
 			script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js')
-			script(src='/components/sticky-kit/jquery.sticky-kit.min.js')
-			script(src='/js/main.js')
 	body(class=bodyclass)
-		header#header.top-level
-			.photo
-			.header-content
-				h1.title: a(href='/')= locals.name
-				ul.touchpoints
-					li: a(href='mailto:site-contact@baf.cc', title='Email').touchpoint: i.fa-envelope.fa-2x.fa.icon
-					li: a(href='http://fb.me/baf', title='Facebook', target='_blank').touchpoint: i.fa-facebook-square.fa-2x.fa.icon
-					li: a(href='https://plus.google.com/102603256650195581699', title='Google+', target='_blank').touchpoint: i.fa-google-plus-square.fa-2x.fa.icon
-					li: a(href='http://lnkd.in/a-G-CK', title='LinkedIn', target='_blank').touchpoint: i.fa-linkedin-square.fa-2x.fa.icon
-					li: a(href='https://twitter.com/baffles', title='Twitter', target='_blank').touchpoint: i.fa-twitter-square.fa-2x.fa.icon
-					li: a(href='https://github.com/baffles', title='GitHub', target='_blank').touchpoint: i.fa-github-square.fa-2x.fa.icon
-		.nav-container
-			.nav.top-level nav header Home | Blog | Blah  Blah
-		main#content.top-level
-			block content
-		footer#footer.top-level
-			div
-				block footer
-					section.about
-						!=contents['about.md'].html
-					section.copy
-						p &copy; #{ new Date().getFullYear() } #{ locals.footerName }
+		.pure-g-r
+			.sidebar.pure-u-1-4
+				header.header
+					hgroup
+						.photo
+						h1.title= locals.name
+						h2.tagline= locals.tagline
+					nav.nav
+						ul.nav-list
+							li.nav-item: a(href='/').pure-button about me
+							li.nav-item: a(href='/blog/').pure-button blog
+			.content.pure-u-3-4
+				main
+					block content
+				footer.footer
+					block footer
+						div.pure-menu.pure-menu-horizontal.pure-menu-open
+							ul
+								block footer-nav
+									//- li: a(href='#') lol
+							p.copyright &copy; #{ new Date().getFullYear() } #{ locals.copyrightName }

@@ -1,7 +1,4 @@
 {
 	"name": "baf.cc",
-	"private": "true",
-	"dependencies": {
-		"sticky-kit": "1.0.x"
-	}
+	"private": "true"
 }

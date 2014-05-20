@@ -2,7 +2,17 @@
 	"locals": {
 		"url": "http://baf.zone",
 		"name": "BAFZone",
-		"footerName": "Robert Ferris"
+		"tagline": "Robert Ferris",
+		"touchpoints": [
+			{ "href": "mailto:site-contact@baf.cc", "title": "Email", "icon": "fa-envelope" },
+			{ "href": "https://fb.me/baf", "title": "Facebook", "icon": "fa-facebook-square" },
+			{ "href": "https://plus.google.com/102603256650195581699", "title": "Google+", "icon": "fa-google-plus-square" },
+			{ "href": "http://lnkd.in/a-G-CK", "title": "LinkedIn", "icon": "fa-linkedin-square" },
+			{ "href": "https://twitter.com/baffles", "title": "Twitter", "icon": "fa-twitter-square" },
+			{ "href": "https://github.com/baffles", "title": "GitHub", "icon": "fa-github-square" },
+			{ "href": "http://steamcommunity.com/id/baf328", "title": "Steam", "icon": "fa-steam-square" }
+		],
+		"copyrightName": "Robert Ferris"
 	},
 	"plugins": [
 		"./plugins/blog.coffee",

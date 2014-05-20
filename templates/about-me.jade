@@ -1,0 +1,15 @@
+extends layout
+
+block append head
+	link(rel='stylesheet', href='/css/about-me.css')
+
+block content
+	h1.content-subhead Touchpoints
+	#me
+		#photo
+		ul.touchpoints
+			each touchpoint in locals.touchpoints
+				li: a(href=touchpoint.href, title=touchpoint.title, target='_blank').touchpoint: i.fa-4x.fa.icon(class=touchpoint.icon)
+
+	h1.content-subhead About Me
+	!= typogr(contents['about.md'].html).typogrify()
