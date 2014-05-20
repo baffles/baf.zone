@@ -1,0 +1,7 @@
+extends blog-listing
+
+block append title
+	| » ##{ tag }
+
+block preFirst
+	li: a(href=contents.index.url) « Full blog

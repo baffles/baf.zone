@@ -1,5 +1,6 @@
 async = require('async')
 path = require('path')
+_ = require('underscore')
 
 module.exports = (env, callback) ->
 	### Blog Plugin
@@ -21,10 +22,13 @@ module.exports = (env, callback) ->
 		pageTemplate: 'index.jade' # template that renders pages
 		pageDynamicTemplate: 'index-dynamic.jade' # template that renders JUST the posts, for infinite scroll
 		permalinkTemplate: 'tumblr-permalink.jade' # template for rendering permalink redirects
+		tagPageTemplate: 'tag.jade' # template for page
 		posts: 'posts' # directory containing the posts
 		first: 'index.html' # filename/url for first page
-		page: 'page/%d/index.html' # filename for pages
-		pageJson: 'page/%d.json' # filename for generated page JSON
+		page: 'page/$page/index.html' # filename for pages
+		pageJson: 'page/$page.json' # filename for generated page JSON
+		tagFirst: 'tag/$tag/index.html' # filename/url for first tag page
+		tagPage: 'tag/$tag/$page/index.html'  # filename for subsequent tag pages
 		perPage: 2 # number of articles per page
 
 	# assign defaults for any options not set in the config file
@@ -44,6 +48,13 @@ module.exports = (env, callback) ->
 		else
 			posts
 
+	getTags = (contents) ->
+		# helper that looks through all contents to collect a list of tags
+		posts = contents
+		posts = posts[folder] for folder in options.posts.split '/'
+		posts = posts._.directories.map (post) -> post.index
+		_(posts).chain().map((post) -> post.metadata.tags).flatten().uniq().value()
+
 	class PaginatorPage extends env.plugins.Page
 		# A page has a number and a list of posts
 		constructor: (@pageNum, @posts) ->
@@ -52,7 +63,7 @@ module.exports = (env, callback) ->
 			if @pageNum is 1
 				options.first
 			else
-				options.page.replace '%d', @pageNum
+				options.page.replace '$page', @pageNum
 
 		getView: -> (env, locals, contents, templates, callback) ->
 			# simple view to pass posts and pagenum to the paginator template
@@ -76,7 +87,7 @@ module.exports = (env, callback) ->
 		# A page has a number and a list of posts
 		constructor: (@pageNum, @posts) ->
 
-		getFilename: -> options.pageJson.replace '%d', @pageNum
+		getFilename: -> options.pageJson.replace '$page', @pageNum
 
 		getView: -> (env, locals, contents, templates, callback) ->
 			# simple view that JSON-ifies the data for the page
@@ -156,8 +167,67 @@ module.exports = (env, callback) ->
 
 		callback null, contentTree
 
+	class TagPage extends env.plugins.Page
+		# A tag page has a tag, a number, and a list of posts
+		constructor: (@tag, @pageNum, @posts) ->
+
+		getFilename: ->
+			if @pageNum is 1
+				options.tagFirst.replace '$tag', @tag
+			else
+				options.tagPage.replace('$tag', @tag).replace('$page', @pageNum)
+
+		getView: -> (env, locals, contents, templates, callback) ->
+			# simple view to pass posts and pagenum to the paginator template
+			# note that this function returns a funciton
+
+			# get the pagination template
+			template = templates[path.normalize(options.tagPageTemplate)]
+			if not template?
+				return callback new Error "unknown blog page template '#{ options.tagPageTemplate }'"
+
+			# setup the template context
+			ctx = {@tag, @posts, @prevPage, @nextPage}
+
+			# extend the template context with the enviroment locals
+			env.utils.extend ctx, locals
+
+			# finally render the template
+			template.render ctx, callback
+
+	env.registerGenerator 'blog-tags', (contents, callback) ->
+		# find all posts and tags
+		posts = getPosts contents
+		tags = getTags contents
+
+		contentTree = { tags: {} }
+
+		for tag in tags
+			pages = []
+
+			# populate pages
+			taggedPosts = posts.filter (post) -> _(post.metadata.tags).contains(tag)
+			numPages = Math.ceil taggedPosts.length / options.perPage
+			for i in [0...numPages]
+				pagePosts = taggedPosts.slice i * options.perPage, (i + 1) * options.perPage
+				pages.push new TagPage tag, i + 1, pagePosts
+
+			# add references to prev/next to each page
+			for page, i in pages
+				page.prevPage = pages[i - 1]
+				page.nextPage = pages[i + 1]
+
+			contentTree.tags[tag] = { pages: {} }
+			for page in pages
+				contentTree.tags[page.tag].pages["#{ page.pageNum }.page"] = page # file extension is arbitrary
+
+		# callback with the generated contents
+		callback null, contentTree
+
 	# add the post helper to the environment so we can use it later
 	env.helpers.getBlogPosts = getPosts
+
+	env.helpers.tagHref = (tag) -> "/#{ options.tagFirst.replace '$tag', tag }".replace /index\.html$/, ''
 
 	# tell the plugin manager we are done
 	callback()

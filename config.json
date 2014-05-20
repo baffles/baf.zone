@@ -35,10 +35,13 @@
 		"pageTemplate": "blog-listing.jade",
 		"pageDynamicTemplate": "blog-page-teasers.jade",
 		"permalinkTemplate": "tumblr-permalink.jade",
+		"tagPageTemplate": "blog-tag-listing.jade",
 		"posts": "blog/posts",
 		"first": "blog/index.html",
-		"page": "blog/page/%d/index.html",
-		"pageJson": "blog/page/%d.json",
+		"page": "blog/page/$page/index.html",
+		"pageJson": "blog/page/$page.json",
+		"tagFirst": "blog/tag/$tag/index.html",
+		"tagPage": "blog/tag/$tag/$page/index.html",
 		"perPage": 5,
 		"tumblrBase": "http://blog.baf.cc/"
 	}

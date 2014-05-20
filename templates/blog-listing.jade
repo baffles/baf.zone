@@ -13,7 +13,8 @@ block prepend footer-nav
 	if prevPage
 		li: a(href=prevPage.url) « Newer
 	else
-		li: a(href='archive.html') « Archives
+		block preFirst
+			li: a(href='archive.html') « Archives
 
 block append footer-nav
 	if nextPage
