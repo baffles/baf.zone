@@ -1,6 +1,9 @@
 extends blog-page
-//- this logic should be moved to a view at some point
 
+block prepend title
+	| Archive - 
+
+//- this logic should be moved to a view at some point
 
 - for (var year in archives)
 -	archives[year] = _.groupBy(archives[year], function(post) { return post.date.getMonth(); });

@@ -3,6 +3,9 @@ extends layout
 block append head
 	link(rel='stylesheet', href='/css/about-me.css')
 
+block prepend title
+	| About Me - 
+
 block content
 	h1.content-subhead Touchpoints
 	#me
