@@ -151,14 +151,14 @@ module.exports = (grunt) ->
 							gzipExclude: [ '.jpg', '.png' ]
 							headers: { 'Cache-Control': 'max-age=630720000, public' }
 					, # by default, the rest won't be cached, since it's mutable. any stray css/js/html/json will be gzipped
-						src: [ 'build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/page/**/*.*' ]
+						src: [ 'build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/posts/**/*.*' ]
 						dest: '/'
 						rel: 'build'
 						options:
 							gzip: true
 							headers: { 'Cache-Control': 'max-age=0, public' }
 					,
-						src: [ 'build/**/*.*', '!build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/page/**/*.*' ]
+						src: [ 'build/**/*.*', '!build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/posts/**/*.*' ]
 						dest: '/'
 						rel: 'build'
 						options:
