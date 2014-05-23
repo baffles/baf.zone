@@ -166,7 +166,9 @@ module.exports = (grunt) ->
 				]
 
 
-	grunt.loadNpmTasks task for task in [ 'grunt-contrib-clean', 'grunt-wintersmith', 'grunt-contrib-imagemin', 'grunt-contrib-htmlmin', 'grunt-contrib-cssmin', 'grunt-contrib-uglify', 'grunt-hashres', 'grunt-s3' ]
+	# loading grunt-s3 from a submodule for now (I made some bugfixes related to globbing)
+	grunt.loadNpmTasks task for task in [ 'grunt-contrib-clean', 'grunt-wintersmith', 'grunt-contrib-imagemin', 'grunt-contrib-htmlmin', 'grunt-contrib-cssmin', 'grunt-contrib-uglify', 'grunt-hashres' ] #, 'grunt-s3'
+	grunt.loadTasks 'grunt-s3/tasks'
 
 	grunt.registerTask 'preview', 'wintersmith:preview'
 
