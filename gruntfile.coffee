@@ -1,6 +1,7 @@
 module.exports = (grunt) ->
 
 	aws = grunt.file.readJSON './grunt-aws.json'
+	uploadConfig = grunt.file.readJSON './upload.json'
 
 	grunt.initConfig
 		clean:
@@ -106,64 +107,11 @@ module.exports = (grunt) ->
 			staging:
 				options:
 					bucket: 'staging.baf.zone'
-				upload: [
-					src: 'build/**/*.*'
-					dest: '/'
-					rel: 'build'
-				]
+				upload: uploadConfig
 			production:
 				options:
 					bucket: 'baf.zone'
-				upload: [
-					# hashres'd files get 2 year max-age. gzip css, js, and css/js in components.
-						src: 'build/css/**/*.*'
-						dest: '/'
-						rel: 'build'
-						options:
-							gzip: true
-							headers: { 'Cache-Control': 'max-age=630720000, public' }
-					,
-						src: 'build/js/**/*.*'
-						dest: '/'
-						rel: 'build'
-						options:
-							gzip: true
-							headers: { 'Cache-Control': 'max-age=630720000, public' }
-					,
-						src: 'build/components/**/*.{css,js}'
-						dest: '/'
-						rel: 'build'
-						options:
-							gzip: true
-							headers: { 'Cache-Control': 'max-age=630720000, public' }
-					,
-						src: [ 'build/components/**/*.*', '!build/components/**/*.{css,js}' ]
-						dest: '/'
-						rel: 'build'
-						options:
-							headers: { 'Cache-Control': 'max-age=630720000, public' }
-					, # allow blog posts and permalinks themselves to be cached (for 15 days). we can invalidate things if required
-						src: [ 'build/blog/posts/**/*.*', 'build/post/**/*.*' ]
-						dest: '/'
-						rel: 'build'
-						options:
-							gzip: true
-							gzipExclude: [ '.jpg', '.png' ]
-							headers: { 'Cache-Control': 'max-age=1296000, public' }
-					, # by default, the rest won't be cached, since it's mutable. any stray css/js/html/json will be gzipped
-						src: [ 'build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/posts/**/*.*' ]
-						dest: '/'
-						rel: 'build'
-						options:
-							gzip: true
-							headers: { 'Cache-Control': 'max-age=0, public' }
-					,
-						src: [ 'build/**/*.*', '!build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/posts/**/*.*' ]
-						dest: '/'
-						rel: 'build'
-						options:
-							headers: { 'Cache-Control': 'max-age=0, public' }
-				]
+				upload: uploadConfig
 
 
 	# loading grunt-s3 from a submodule for now (I made some bugfixes related to globbing)
