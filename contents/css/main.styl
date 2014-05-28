@@ -13,6 +13,33 @@ body
 		top auto
 		margin 3em auto
 
+		.title, .tagline
+			margin 0
+		.tagline
+			color #7f2a06
+			font-weight 300
+
+		.nav-list
+			margin 0
+			padding 0
+			list-style none
+
+			.nav-item
+				display inline-block
+				zoom 1
+
+				a
+					background transparent
+					border 2px solid #7F2A06
+					color white
+					margin-top 1em
+					letter-spacing 0.05em
+					font-size 85%
+
+					&:hover, &:focus
+						border 2px solid #FF530D
+						text-decoration none
+
 .footer
 	text-align center
 	padding 1em 0
@@ -45,6 +72,9 @@ a
 		text-decoration underline
 
 @media (min-width: 48em)
+	body
+		overflow-y scroll
+
 	.content
 		padding 2em 3em 0
 		margin-left 25%
@@ -57,30 +87,3 @@ a
 		.header
 			margin 80% 2em 0
 			text-align right
-
-			.title, .tagline
-				margin 0
-			.tagline
-				color #7f2a06
-				font-weight 300
-
-			.nav-list
-				margin 0
-				padding 0
-				list-style none
-
-				.nav-item
-					display inline-block
-					zoom 1
-
-					a
-						background transparent
-						border 2px solid #7F2A06
-						color white
-						margin-top 1em
-						letter-spacing 0.05em
-						font-size 85%
-
-						&:hover, &:focus
-							border 2px solid #FF530D
-							text-decoration none
