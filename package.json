@@ -16,6 +16,7 @@
     "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-imagemin": "^0.7.0",
     "grunt-contrib-uglify": "^0.4.0",
+    "grunt-git": "^0.2.11",
     "grunt-hashres": "^0.4.1",
     "grunt-s3": "^0.2.0-alpha.3",
     "grunt-wintersmith": "^0.0.2"

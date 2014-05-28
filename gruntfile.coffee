@@ -112,10 +112,16 @@ module.exports = (grunt) ->
 				options:
 					bucket: 'baf.zone'
 				upload: uploadConfig
+		gittag:
+			deployment:
+				options:
+					#tag: moment().format 'YYYY.MM.DD'
+					tag: "<%= grunt.template.today('yyyy.mm.dd') %>"
+					message: "Production push on <%= grunt.template.today('mmmm d, yyyy') %>."
 
 
 	# loading grunt-s3 from a submodule for now (I made some bugfixes related to globbing)
-	grunt.loadNpmTasks task for task in [ 'grunt-contrib-clean', 'grunt-wintersmith', 'grunt-contrib-imagemin', 'grunt-contrib-htmlmin', 'grunt-contrib-cssmin', 'grunt-contrib-uglify', 'grunt-hashres' ] #, 'grunt-s3'
+	grunt.loadNpmTasks task for task in [ 'grunt-contrib-clean', 'grunt-wintersmith', 'grunt-contrib-imagemin', 'grunt-contrib-htmlmin', 'grunt-contrib-cssmin', 'grunt-contrib-uglify', 'grunt-hashres', 'grunt-git' ] #, 'grunt-s3'
 	grunt.loadTasks 'grunt-s3/tasks'
 
 	grunt.registerTask 'preview', 'wintersmith:preview'
@@ -125,4 +131,4 @@ module.exports = (grunt) ->
 	grunt.registerTask 'build', [ 'pre-build', 'wintersmith:build', 'post-build' ]
 
 	grunt.registerTask 'deploy-staging', [ 'build', 's3:staging' ]
-	grunt.registerTask 'deploy-production', [ 'build', 's3:production' ]
+	grunt.registerTask 'deploy-production', [ 'build', 's3:production', 'gittag:deployment' ]
