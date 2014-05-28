@@ -142,14 +142,14 @@ module.exports = (grunt) ->
 						rel: 'build'
 						options:
 							headers: { 'Cache-Control': 'max-age=630720000, public' }
-					, # allow blog posts and permalinks themselves to be cached. we can invalidate things if required
+					, # allow blog posts and permalinks themselves to be cached (for 15 days). we can invalidate things if required
 						src: [ 'build/blog/posts/**/*.*', 'build/post/**/*.*' ]
 						dest: '/'
 						rel: 'build'
 						options:
 							gzip: true
 							gzipExclude: [ '.jpg', '.png' ]
-							headers: { 'Cache-Control': 'max-age=630720000, public' }
+							headers: { 'Cache-Control': 'max-age=1296000, public' }
 					, # by default, the rest won't be cached, since it's mutable. any stray css/js/html/json will be gzipped
 						src: [ 'build/**/*.{css,js,json,html}', '!build/{components,css,js,post}/**/*.*', '!build/blog/posts/**/*.*' ]
 						dest: '/'
