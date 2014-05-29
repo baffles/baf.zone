@@ -105,12 +105,10 @@ module.exports = (grunt) ->
 				secret: aws.secret
 				access: 'public-read'
 			staging:
-				options:
-					bucket: 'staging.baf.zone'
+				options: aws.stagingOptions
 				upload: uploadConfig
 			production:
-				options:
-					bucket: 'baf.zone'
+				options: aws.productionOptions
 				upload: uploadConfig
 		gittag:
 			deployment:
