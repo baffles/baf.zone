@@ -1,0 +1,12 @@
+{
+	"key": "AWS KEY",
+	"secret": "AWS SECRET",
+
+	"stagingOptions": {
+		"bucket" : "staging deployment bucket"
+	},
+
+	"productionOptions": {
+		"bucket": "production deployment bucket"
+	}
+}
