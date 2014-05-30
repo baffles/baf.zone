@@ -1,4 +1,4 @@
 [submodule "grunt-s3"]
 	path = grunt-s3
-	url = git://github.com/baffles/grunt-s3
-	branch = fix-globbing
+	url = git://github.com/pifantastic/grunt-s3
+	branch = master
