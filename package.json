@@ -1,8 +1,13 @@
 {
   "dependencies": {
     "async": "^0.9.0",
+    "duplexer": "^0.1.1",
+    "js-yaml": "^3.0.2",
+    "markdown-pdf": "^2.2.0",
     "moment": "^2.3.1",
     "nib": "^1.0.2",
+    "split": "^0.3.0",
+    "through": "^2.3.4",
     "typogr": "^0.5.2",
     "underscore": "^1.4.4",
     "wintersmith-coffee": "^0.2.1",

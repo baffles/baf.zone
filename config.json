@@ -16,6 +16,8 @@
 	},
 	"plugins": [
 		"./plugins/blog.coffee",
+		"./plugins/pdf.coffee",
+		"./plugins/projects.coffee",
 		"wintersmith-stylus",
 		"wintersmith-coffee"
 	],
@@ -44,5 +46,8 @@
 		"tagPage": "blog/tag/$tag/$page/index.html",
 		"perPage": 5,
 		"tumblrBase": "http://blog.baf.cc/"
+	},
+	"projects": {
+		"projectPageTemplate": "project-page.jade"
 	}
 }
