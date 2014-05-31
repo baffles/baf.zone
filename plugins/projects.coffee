@@ -149,4 +149,6 @@ module.exports = (env, callback) ->
 
 		callback null, contentTree
 
+	env.helpers.projectHref = (project) -> "/#{ options.projects }/#{ project }/"
+
 	callback()

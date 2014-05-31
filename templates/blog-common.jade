@@ -5,6 +5,8 @@ mixin post(post, full)
 			h1.post-title: a(href=post.url)= post.title
 			.meta
 				span.date(title=moment(post.date).format('LLLL'))= moment(post.date).fromNow()
+				if post.metadata.project
+					a.project(href=env.helpers.projectHref(post.metadata.project))=post.metadata.project
 				if post.metadata.tags
 					ul.tags
 						each tag in post.metadata.tags
