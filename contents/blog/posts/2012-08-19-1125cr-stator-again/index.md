@@ -4,6 +4,7 @@ title: 1125CR Stator, Again...
 date: '2012-08-19T17:25:41-04:00'
 tags:
 - motorcycle
+project: 1125-charging-system
 tumblr_url: http://blog.baf.cc/post/29781056233/1125cr-stator-again
 ---
 It occurs to me that I've not posted an update on my 1125's [stator failure](http://blog.baf.cc/post/25545980533/1125cr-stator-died). I ended up re-winding the stator myself, which was a fair bit easier thanks to [Hildstrom's write-up](http://hildstrom.com/projects/buellstator/index.html) on the topic. I used the same magnet wire he did, with one of the Duralco epoxies mentioned. Got it all installed, along with a new CE-605 SB series regulator. I may do a more detailed write-up at some point on this, as I took some pictures along the way to document the progress.

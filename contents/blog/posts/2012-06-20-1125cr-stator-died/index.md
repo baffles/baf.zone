@@ -4,6 +4,7 @@ title: 1125CR Stator Died
 date: '2012-06-20T21:55:42-04:00'
 tags:
 - motorcycle
+project: 1125-charging-system
 tumblr_url: http://blog.baf.cc/post/25545980533/1125cr-stator-died
 ---
 Unfortunately, the stator in my 1125CR bit the big one the other day. What's weird is that it went from working fine to a state of total failure within about 25 minutes. Typically, an issue will appear in one phase of the three phase stator, and just drop it down to either 1 or 2 functioning phases - meaning you won't have full charging capacity, but you will still have something.
