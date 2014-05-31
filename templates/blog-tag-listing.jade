@@ -1,7 +1,10 @@
 extends blog-listing
 
-block append title
-	| » ##{ tag }
+block prepend title
+	| ##{ tag } - 
+
+block append content-subhead
+	| &raquo; ##{ tag }
 
 block preFirst
 	li: a(href=contents.index.url) « Full blog

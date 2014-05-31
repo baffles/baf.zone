@@ -3,6 +3,10 @@ extends project-page
 block prepend title
 	| #{ page.metadata.name + " - "}
 
+block append content-subhead
+	| &raquo; 
+	= page.parent.index.metadata.category
+
 block append content
 	h1= page.metadata.name
 

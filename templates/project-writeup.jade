@@ -5,6 +5,8 @@ block prepend title
 
 block append content-subhead
 	| &raquo; 
+	= page.parent.index.metadata.category
+	| &raquo; 
 	= page.parent.index.metadata.name
 
 block append content
