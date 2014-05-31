@@ -5,9 +5,6 @@ block prepend title
 
 //- this logic should be moved to a view at some point
 
-- for (var year in archives)
--	archives[year] = _.groupBy(archives[year], function(post) { return post.date.getMonth(); });
-
 block append content
 	section.archive
 		h1 Archive
