@@ -1,0 +1,18 @@
+extends project-page
+
+block prepend title
+	| Projects - 
+
+//- this logic should be moved to a view at some point
+
+block append content
+	section
+		h1 Projects
+		ul.categories
+			- var projectsByCategory = _.groupBy(env.helpers.getProjects(contents, true), function(project) { return project.metadata.category; });
+			- var categories = _.chain(projectsByCategory).keys().sortBy(_.identity).value();
+			each category in categories
+				span.category-label=category
+				ul.projects
+					each project in projectsByCategory[category]
+						li: a(href=project.url)=project.metadata.name

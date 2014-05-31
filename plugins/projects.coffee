@@ -103,7 +103,7 @@ module.exports = (env, callback) ->
 		projects = contents
 		projects = projects[folder] for folder in options.projects.split '/'
 		projects = projects._.directories.map (dir) -> dir.index
-		projects = projects.filter (project) -> project.metadata?.project?
+		projects = projects.filter (project) -> project?.metadata?.project?
 		projects.sort (a, b) -> a.metadata.project.localeCompare(b.metadata.project, { sensitivity: 'accent' }) if sort ? true
 		if filter?
 			projects.filter filter
