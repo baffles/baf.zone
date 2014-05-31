@@ -377,11 +377,11 @@ system overhaul.
 
 Here's the final timeline for the work I did:
 
-* EBR rotor installed at 12,627 miles
-* Factory stator dead, first re-wind attempt at 12,954 miles 
+* EBR rotor installed at 12,627 miles.
+* Factory stator dead, first re-wind attempt at 12,954 miles.
 * First re-wind faulty and dead before 14,505 miles. Second re-wind attempt
   was installed at 14,505 miles.
-* Bike totaled at 21,028 miles. 
+* Bike totaled at 21,028 miles.
 
 Unfortunately, I wasn't in a good condition to be wrenching on the bike, so I
 didn't have the opportunity to check out the stator condition before the
