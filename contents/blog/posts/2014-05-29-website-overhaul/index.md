@@ -54,6 +54,8 @@ I'd like to extend the site to include information on all my projects. I have a
 [separate site] [3] right now where I was trying to write up information on
 projects, but this has proven to be too isolated and difficult to maintain.
 
+  [3]: http://projects.baf.cc/
+
 Moving forward, I'm going to implement a projects section right on this site,
 with whatever writeups and information I generate for the project, as well as
 having it all linked in with blog posts. I've already added the appropriate tags
