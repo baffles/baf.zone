@@ -6,11 +6,6 @@ block prepend title
 block append content
 	h1= page.metadata.name
 
-	-var summary = page.getSummary(contents)
-	if summary
-		h2 Summary
-		p!= typogr(summary.html).typogrify()
-
 	-var writeup = page.writeup
 	if writeup
 		p
@@ -18,6 +13,11 @@ block append content
 			a(href=writeup.html) web
 			|  | 
 			a(href=writeup.pdf) pdf
+
+	-var summary = page.getSummary(contents)
+	if summary
+		h2 Summary
+		p!= typogr(summary.html).typogrify()
 
 	-var blogPosts = env.helpers.getBlogPosts(contents, true, function(post) { return post.metadata.project == page.metadata.project })
 	if blogPosts.length > 0
