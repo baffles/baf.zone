@@ -9,7 +9,7 @@ block append content
 	section
 		h1 Projects
 		ul.categories
-			- var projectsByCategory = _.groupBy(env.helpers.getProjects(contents, false), function(project) { return project.metadata.category; });
+			- var projectsByCategory = _.groupBy(env.helpers.getProjects(contents, false, function(project) { return !project.metadata.hidden; }), function(project) { return project.metadata.category; });
 			- var categories = _.chain(projectsByCategory).keys().sortBy(_.identity).value();
 			each category in categories
 				span.category-label=category
