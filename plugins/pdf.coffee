@@ -6,6 +6,8 @@ duplexer = require 'duplexer'
 split = require 'split'
 through = require 'through'
 
+typogr = require 'typogr'
+
 module.exports = (env, callback) ->
 	### PDF plugin
 
@@ -39,6 +41,19 @@ module.exports = (env, callback) ->
 			splitter.pipe replacer
 			duplexer splitter, replacer
 
+		preProcessHtml = () ->
+			# post-process the HTML output by running it through typogrify
+			splitter = split()
+			replacer = through (data) ->
+				if /[^\s]/.test data
+					@queue typogr.typogrify(data)
+				else
+					@queue data
+				@queue '\n'
+
+			splitter.pipe replacer
+			duplexer splitter, replacer
+
 		markdownpdfOpts =
 			cssPath: path.resolve options.css
 			paperFormat: options.paperFormat
@@ -46,6 +61,7 @@ module.exports = (env, callback) ->
 			pageBorder: options.pageBorder
 			renderDelay: options.renderDelay
 			preProcessMd: preProcessMd
+			preProcessHtml: preProcessHtml
 
 		markdownpdf(markdownpdfOpts)
 			.from(mdFile)
