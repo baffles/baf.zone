@@ -1,6 +1,7 @@
 async = require 'async'
 fs = require 'fs'
 path = require 'path'
+url = require 'url'
 
 yaml = require 'js-yaml'
 
@@ -30,17 +31,38 @@ module.exports = (env, callback) ->
 		options[key] ?= defaults[key]
 
 	class ProjectPage extends env.plugins.Page
-		constructor: (@filepath, @metadata) ->
+		constructor: (@filepath, @metadata, @projectContents) ->
 
 		@property 'directory', 'getDirectory'
 		getDirectory: () ->
 			full: path.dirname @filepath.full
 			relative: path.dirname @filepath.relative
 
-		@property 'location', 'getLocation'
-		getLocation: (base) ->
+		getLocation: (base=env.config.baseUrl) ->
 			uri = @getUrl base
 			uri[0..uri.lastIndexOf('/')]
+
+		getProjDir: (contents) ->
+			# find the project directory in `contents`
+			dir = @directory.relative
+			projDir = contents
+			projDir = projDir[folder] for folder in dir.split path.sep
+			projDir
+
+		getSummary: (contents) ->
+			# find the project summary, if there is one, in `contents`
+			if @metadata.summary
+				projDir = @getProjDir contents
+				projDir[@metadata.summary]
+
+		@property 'writeup', 'getWriteup'
+		getWriteup: () ->
+			# generate project writeup URLs
+			if @metadata.writeup
+				baseUrl = @getLocation()
+				writeup = path.basename(@metadata.writeup, path.extname(@metadata.writeup))
+				html: url.resolve baseUrl, "#{writeup}.html"
+				pdf: url.resolve baseUrl, "#{writeup}.pdf"
 
 	ProjectPage.fromFile = (filepath, callback) ->
 		async.waterfall [
@@ -81,14 +103,26 @@ module.exports = (env, callback) ->
 		projects = contents
 		projects = projects[folder] for folder in options.projects.split '/'
 		projects = projects._.directories.map (dir) -> dir.index
-		projects.sort (a, b) -> a.localeCompare(b, { sensitivity: 'accent' }) if sort ? true
 		projects = projects.filter (project) -> project.metadata?.project?
+		projects.sort (a, b) -> a.metadata.project.localeCompare(b.metadata.project, { sensitivity: 'accent' }) if sort ? true
 		if filter?
 			projects.filter filter
 		else
 			projects
 
 	env.helpers.getProjects = getProjects
+
+	env.registerGenerator 'project-html', (contents, callback) ->
+		projects = getProjects(contents, false, (project) -> project.metadata.writeup?)
+
+		contentTree = { projects: { html: {} } }
+		for project in projects
+			file =
+				full: path.join(project.directory.full, project.metadata.writeup)
+				relative: path.join(project.directory.relative, project.metadata.writeup)
+			contentTree.projects.html[project.metadata.project] = new ProjectWriteupPdf file, project.metadata
+
+		callback null, contentTree
 
 	class ProjectWriteupPdf extends env.ContentPlugin
 		### Project PDF; renders markdown to PDF using markdown-pdf ###

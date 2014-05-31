@@ -1,3 +1,8 @@
+---
+template: project-writeup.jade
+title: Buell 1125CR Charging System Overhaul
+project: 1125-charging-system
+---
 # Buell 1125CR Charging System Overhaul
 
 This writeup covers the charging system work I did on my 2009 Buell 1125CR. It

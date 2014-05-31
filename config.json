@@ -48,6 +48,6 @@
 		"tumblrBase": "http://blog.baf.cc/"
 	},
 	"projects": {
-		"projectPageTemplate": "project-page.jade"
+		"projectPageTemplate": "project-summary.jade"
 	}
 }

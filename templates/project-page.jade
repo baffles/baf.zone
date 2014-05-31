@@ -1,4 +1,9 @@
 extends layout
 
+block append head
+	link(rel='stylesheet', href='/css/blog.css')
+
 block content
-	h1= page.metadata.name
+	h1.content-subhead
+		block content-subhead
+			| BAF's Projects

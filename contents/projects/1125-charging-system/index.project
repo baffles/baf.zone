@@ -1,4 +1,5 @@
 project: 1125-charging-system
 name: Buell 1125 Charging System Overhaul
 category: Motorcycle
+summary: summary.md
 writeup: writeup.md

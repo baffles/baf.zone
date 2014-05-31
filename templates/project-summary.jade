@@ -1,0 +1,27 @@
+extends project-page
+
+block prepend title
+	| #{ page.metadata.name + " - "}
+
+block append content
+	h1= page.metadata.name
+
+	-var summary = page.getSummary(contents)
+	if summary
+		h2 Summary
+		p!= typogr(summary.html).typogrify()
+
+	-var writeup = page.writeup
+	if writeup
+		p
+			strong Project Write-Up: 
+			a(href=writeup.html) web
+			|  | 
+			a(href=writeup.pdf) pdf
+
+	-var blogPosts = env.helpers.getBlogPosts(contents, true, function(post) { return post.metadata.project == page.metadata.project })
+	if blogPosts.length > 0
+		h2 Related Blog Posts
+		ul
+			each post in blogPosts
+				li: a(href=post.url)=post.title

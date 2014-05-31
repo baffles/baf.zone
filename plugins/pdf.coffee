@@ -32,11 +32,18 @@ module.exports = (env, callback) ->
 		baseDir = path.dirname mdFile
 
 		preProcessMd = () ->
+			readingFrontMatter = null
+
 			# pre-process the markdown input to resolve image URLs to absolute paths
 			splitter = split()
 			replacer = through (data) ->
-				line = data.replace /\!\[(.*?)\]\(([^"']+)([^)]*)\)/gi, (match, altText, imgPath, trailingTitle) -> "![#{altText}](#{path.resolve baseDir, imgPath}#{trailingTitle})"
-				@queue "#{line}\n"
+				if not readingFrontMatter?
+					readingFrontMatter ?= data[0...3] is '---' or data[0...11] is '```metadata'
+				else if readingFrontMatter
+					readingFrontMatter = data[0...3] isnt '---' and data[0...3] isnt '```'
+				else
+					line = data.replace /\!\[(.*?)\]\(([^"']+)([^)]*)\)/gi, (match, altText, imgPath, trailingTitle) -> "![#{altText}](#{path.resolve baseDir, imgPath}#{trailingTitle})"
+					@queue "#{line}\n"
 
 			splitter.pipe replacer
 			duplexer splitter, replacer
