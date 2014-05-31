@@ -67,7 +67,7 @@ I purchased one for installation on my machine. I needed to tear it down to do a
 valve check anyway, so this gave me the perfect opportunity to kill two birds
 with one stone.
 
-![EBR oil spraying rotor](ebrrotor_hole.jpg)
+![EBR oil spraying rotor](photos/ebrrotor_hole.jpg)
 
 If you look carefully at the photo of the rotor above, you can see the tiny oil
 spraying hole in the area circled in yellow. It looks tiny, but it doesn't take
@@ -103,11 +103,11 @@ attempted to make my own, but it didn't work out very well.
 I drilled out an appropriately sized bolt (to protect the threads in the engine
 casing), and used an appropriately sized hardened steel rod.
 
-![Drilled out bolt](diy_cranklock_bolt1.jpg)
+![Drilled out bolt](photos/diy_cranklock_bolt1.jpg)
 
-![Drilled out bolt](diy_cranklock_bolt2.jpg)
+![Drilled out bolt](photos/diy_cranklock_bolt2.jpg)
 
-![Steel rod](diy_cranklock_rod.jpg)
+![Steel rod](photos/diy_cranklock_rod.jpg)
 
 I was able to get the crankshaft locked with the tool, however, the tool slipped
 out of the hole with only around 50 ft-lbs of torque applied. Rotor nut
@@ -167,7 +167,7 @@ here, so I lightly torqued the nut on with the impact, backed it off a couple of
 turns, then tightened it on. Since my impact was rated for 300 ft-lbs, I let it
 work nut on for a couple seconds.
 
-![EBR oil spraying rotor, installed](ebrrotor_installed.jpg)
+![EBR oil spraying rotor, installed](photos/ebrrotor_installed.jpg)
 
 Afterwards, reassemble the engine, and it's done!
 
@@ -181,7 +181,7 @@ Unfortunately, when installing the new rotor, I could tell that my stator was
 almost toast. It had the tell-tale burnt epoxy and looked in bad shape. So, I
 began investigating options for a new stator.
 
-![Original rotor damage, at time of rotor install](stockstator_atrotorinstall.jpg)
+![Original rotor damage, at time of rotor install](photos/stockstator_atrotorinstall.jpg)
 
 There are several options now for having your stator rewound with high quality
 materials. When I made the decision to rewind mine myself, there were less
@@ -222,16 +222,16 @@ reading_) already does an excellent job of this.
 My first rewound stator failed. This was due to my windings being messy. I'm
 almost embarassed to show pictures...
 
-![Stator rewind, just started](stator_rewind_take1_progress1.jpg)
+![Stator rewind, just started](photos/stator_rewind_take1_progress1.jpg)
 
-![Stator rewind, windings complete](stator_rewind_take1_progress2.jpg)
+![Stator rewind, windings complete](photos/stator_rewind_take1_progress2.jpg)
 
-![Stator rewind, epoxied and installed](stator_rewind_take1_progress3.jpg)
+![Stator rewind, epoxied and installed](photos/stator_rewind_take1_progress3.jpg)
 
 I got everything buttoned up, and on the stock regulator, voltage output was
 fine.
 
-![Take one: good output!](stator_rewind_take1_volts.jpg)
+![Take one: good output!](photos/stator_rewind_take1_volts.jpg)
 
 After the rewind, I bought the CE-605 SB regulator. My first one failed
 relatively quickly after installation, and after receiving a replacement, I
@@ -241,7 +241,7 @@ trip.
 
 I took the stator out, and immediately saw why it failed:
 
-![Take one: failure!](stator_rewind_take1_failed2.jpg)
+![Take one: failure!](photos/stator_rewind_take1_failed2.jpg)
 
 The windings were too messy, and some made contact with the rotor, and
 eventually rubbed through. Unfortunately, this took a toll on my new rotor as
@@ -249,7 +249,7 @@ well. Rotor is still working fine, it just looks ugly. Next time I have the
 motor apart for a valve check/adjustment, I'm going to fill in the damaged
 section with epoxy.
 
-![Take one: failure!](stator_rewind_take1_rotordamage.jpg)
+![Take one: failure!](photos/stator_rewind_take1_rotordamage.jpg)
 
 The stator lasted several thousand miles before failing, and almost all of that
 time was spent on the stock, shunt regulator (I'll discuss this in the regulator
@@ -258,7 +258,7 @@ regulated voltage, so stator is always running at maximum output). The stator,
 aside from the damage, still looked brand new, so I'm confident in the wire and
 epoxy choice:
 
-![Take one: failed stator still looks new](stator_rewind_take1_failed1.jpg)
+![Take one: failed stator still looks new](photos/stator_rewind_take1_failed1.jpg)
 
 #### Take Two, Success!
 
@@ -266,28 +266,28 @@ I rewound another failed stator core, this time taking more care in keeping the
 windings neat and compact. It's still not as good as Hildstrom's job, but it did
 come out _much_ neater. I'm happy with the result.
 
-![Take two: Stock, burnt out stator](stator_rewind_take2_progress1.jpg)
+![Take two: Stock, burnt out stator](photos/stator_rewind_take2_progress1.jpg)
 
-![Take two: Beginning disassembly](stator_rewind_take2_progress2.jpg)
+![Take two: Beginning disassembly](photos/stator_rewind_take2_progress2.jpg)
 
-![Take two: First phase complete](stator_rewind_take2_progress3.jpg)
+![Take two: First phase complete](photos/stator_rewind_take2_progress3.jpg)
 
-![Take two: Second phase complete](stator_rewind_take2_progress4.jpg)
+![Take two: Second phase complete](photos/stator_rewind_take2_progress4.jpg)
 
-![Take two: Third phase almost complete](stator_rewind_take2_progress5.jpg)
+![Take two: Third phase almost complete](photos/stator_rewind_take2_progress5.jpg)
 
-![Take two: Third phase complete](stator_rewind_take2_progress6.jpg)
+![Take two: Third phase complete](photos/stator_rewind_take2_progress6.jpg)
 
-![Take two: Stator complete, epoxy applied](stator_rewind_take2_progress7.jpg)
+![Take two: Stator complete, epoxy applied](photos/stator_rewind_take2_progress7.jpg)
 
-![Take two: Epoxy cured, stator installed](stator_rewind_take2_progress8.jpg)
+![Take two: Epoxy cured, stator installed](photos/stator_rewind_take2_progress8.jpg)
 
 I got everything buttoned up, again, and tested it out. Note that the picture
 was taken with the bike under high electrical load (hot motor, fans running on
 high, high beams on). This is also with the CE-605 SB regulator hooked up,
 which works nicely with a properly working stator.
 
-![Take two: Stator under load, fine output](stator_rewind_take2_volts1.jpg)
+![Take two: Stator under load, fine output](photos/stator_rewind_take2_volts1.jpg)
 
 ## New Regulator
 
@@ -334,9 +334,9 @@ I mounted the regulator underneath the tail section. The instructions tell you
 to keep it out in direct airflow, however this is the best place I had for
 attaching it, and have not had any issues with the regulator staying cool.
 
-![CE-605 SB mounted under tail section](regulator_install1.jpg)
+![CE-605 SB mounted under tail section](photos/regulator_install1.jpg)
 
-![CE-605 SB mounted under tail section](regulator_install2.jpg)
+![CE-605 SB mounted under tail section](photos/regulator_install2.jpg)
 
 I used a new Deutsch connector to mate with the stator connector, so as to leave
 the stock regulator in place. I needed to cut the harness off the stock
@@ -352,7 +352,7 @@ the battery fuse in the long run. I chose to hook it into the harness where the
 stock regulator hooked in, to preserve the original electrical design. There's
 no issue with the wiring harness, so I saw no need to bypass it.
 
-![CE-605 SB wiring](regulator_install3.jpg)
+![CE-605 SB wiring](photos/regulator_install3.jpg)
 
 I also removed the band-aid charging "upgrade harness" from the bike. This uses
 a relay to turn off 2/3 of the stator to try and manage heat. This is
