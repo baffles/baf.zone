@@ -19,9 +19,9 @@ These changes are mostly minor, but they do enable you to do more powerful event
 ```cs
 // given IrcConnection conn;
 conn.MessageReceived += (s, e) =>
- {
-     if (e.Message.Command == IrcCommand.Ctcp && e.Message.Parameters\[1].Equals("ping", StringComparison.OrdinalIgnoreCase))
-        conn.SendMessage(IrcMessage.NCtcp(e.Message.From.Nick, "PING", e.Message.Parameters\[2]));
+{
+	if (e.Message.Command == IrcCommand.Ctcp && e.Message.Parameters[1].Equals("ping", StringComparison.OrdinalIgnoreCase))
+		conn.SendMessage(IrcMessage.NCtcp(e.Message.From.Nick, "PING", e.Message.Parameters[2]));
 };
 ```
 

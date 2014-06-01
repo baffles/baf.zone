@@ -1,0 +1,94 @@
+/* Modified version of https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow.css
+ * - removed hljs- prefixes (see wintersmith's markdown.coffee, line 9)
+ */
+
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+/* Tomorrow Comment */
+.comment,
+.title {
+  color: #8e908c;
+}
+
+/* Tomorrow Red */
+.variable,
+.attribute,
+.tag,
+.regexp,
+.ruby .constant,
+.xml .tag .title,
+.xml .pi,
+.xml .doctype,
+.html .doctype,
+.css .id,
+.css .class,
+.css .pseudo {
+  color: #c82829;
+}
+
+/* Tomorrow Orange */
+.number,
+.preprocessor,
+.pragma,
+.built_in,
+.literal,
+.params,
+.constant {
+  color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.ruby .class .title,
+.css .rules .attribute {
+  color: #eab700;
+}
+
+/* Tomorrow Green */
+.string,
+.value,
+.inheritance,
+.header,
+.lang-ruby .symbol,
+.lang-xml .cdata {
+  color: #718c00;
+}
+
+/* Tomorrow Aqua */
+.lang-css .hexcolor {
+  color: #3e999f;
+}
+
+/* Tomorrow Blue */
+.function,
+.lang-python .decorator,
+.lang-python .title,
+.lang-ruby .function .title,
+.lang-ruby .title .keyword,
+.lang-perl .sub,
+.lang-javascript .title,
+.lang-coffeescript .title {
+  color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.keyword,
+.lang-javascript .function {
+  color: #8959a8;
+}
+
+code {
+  display: inline-block;
+  background: white;
+  color: #4d4d4c;
+  padding: 0.5em;
+}
+
+.lang-coffeescript .lang-javascript,
+.lang-javascript .lang-xml,
+.lang-tex .formula,
+.lang-xml .lang-javascript,
+.lang-xml .lang-vbscript,
+.lang-xml .lang-css,
+.lang-xml .cdata {
+  opacity: 0.5;
+}
