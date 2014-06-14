@@ -4,7 +4,8 @@ mixin post(post, full)
 		header.post-header
 			h1.post-title: a(href=post.url)= post.title
 			.meta
-				span.date(title=moment(post.date).format('LLLL'))= moment(post.date).fromNow()
+				- var postDate = moment(post.date)
+				span.date(title=postDate.format('LLLL'), data-timestamp=postDate.toISOString())= postDate.format('MMMM D, YYYY')
 				if post.metadata.project
 					a.project(href=env.helpers.projectHref(post.metadata.project))=post.metadata.project
 				if post.metadata.tags

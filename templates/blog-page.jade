@@ -4,6 +4,8 @@ include blog-common
 block append head
 	link(rel='stylesheet', href='/css/blog.css')
 	link(rel='stylesheet', href='/css/highlight-tomorrow.css')
+	script(src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js', defer)
+	script(src='/js/blog.js', defer)
 
 block content
 	h1.content-subhead
